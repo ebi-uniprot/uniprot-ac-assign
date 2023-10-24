@@ -13,3 +13,8 @@ Script for assigning UniProt ACs to entry or entries in a flatfile
 7/6/2023 C0HM94 CO1A2_EPICA kwarner for Kate's sub work
 
 7/6/2023 C0HM95 CO1AB_EPICA kwarner for Kate's sub work
+
+Once the script has been run I would expect:
+1. The flatfile to be exactly the same (no change)
+2. The ACs that have been assigned to be removed from the AC list
+3. The AC datafile to be appended with the information on the latest assignment (the output above).
