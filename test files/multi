@@ -1,0 +1,1067 @@
+ID   CO1AA_EPIMA             Unreviewed;      1074 AA.
+AC   C0HM84;
+DT   31-MAY-2023, integrated into UniProtKB/TrEMBL.
+DT   31-MAY-2023, sequence version 1.
+DT   31-MAY-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1a {ECO:0000305};
+DE            Short=col1a1a {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus marginatus (Dusky grouper).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179535 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Disulfide bond; Extracellular matrix;
+KW   Secreted.
+FT   CHAIN           1..1074
+FT                   /note="Collagen, type I, alpha 1a"
+FT   DOMAIN          1014..1074
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   DISULFID        1047
+FT                   /note="Interchain"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   DISULFID        1072
+FT                   /note="Interchain"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        17..18
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        23..24
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        344..345
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        485..486
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        905..906
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1010..1011
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1037..1038
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1056..1057
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+**ZZ Submitter requested for entries to be release to coincide with published
+**ZZ paper. Unlike in vertebrates, many fish including zebrafish, have three
+**ZZ distinctive collagen chains called COL1a1a, COL1a2, and COL1a1b (see
+**ZZ pubmed:26876635). Zebrafish should be updated later to show this.
+SQ   SEQUENCE   1074 AA;  96458 MW;  E8A6C08356D1D830 CRC64;
+     KSPAMPVPGP MGPMGPRSGP QGFPGEAGAA GAMGPRGPAG PPGKNGEDGE SGKPGRGGER
+     GPPGPQGARG FPGTPGLPGM KGHRGFSGLD GAKGDSGPAG PKGESGAPGE NGTPGAMGPR
+     GLPGERGRTG AAGAAGARGN DGAAGAAGPP GPTGPAGPPG FPGGPGAKGD AGAQGGRGPE
+     GPAGARGEPG NPGPAGAAGP SGNPGTDGAA GPKGTPGAAG VAGAPGFPGP RGPSGPQGAA
+     GAPGPKGNTG EVGAPGAKGE AGAKGEAGAP GVQGPPGPSG EEGKRGARGE PGAAGARGAP
+     GERGGPGGRG FPGSDGPAGP KGATGERGAP GAVGPKGSTG ESGRGMTGSP GSPGPDGKTG
+     PAGPSGQDGR PGPPGPVGAR GQPGVMGFPG PKGAAGEGGK PGERGVMGPT GAAGAPGKDG
+     DVGAPGPSGP AGPAGERGEQ GPAGAPGFQG LPGPQGALGE TGKPGEQGVP GEAGATGPAG
+     ARGDRGAPGA LGPAGARGSP GSAGNDGAKG DAGAPGAPGA QGPPGLQGMP GERGAAGLPG
+     LRGDRGDQGA KGADGAPGKD GPRGLTGPLG LPGPAGATGD KGEPGPAGPV GPGGARGAPG
+     ERGESGPPGP AGFAGPPGAD GQPGAKGEAG DNGAKGDAGP PGAAGPTGAP GPQGPVGNTG
+     PKGARGAAGP PGATGFPGAA GRVGPPGPSG NPGPPGPAGG TGKEGPKGNR GETGPAGRPG
+     ELGAAGPPGP AGEKGSPGSE GATGSAGLPG PQGLAGQRGL VGLPGQRGER GFSGLPGPAG
+     EPGKPGPSGP GGERGPPGPM GPPGLAGAPG EPGREGSPGS EGSAGRDGAA GPKGDRGESG
+     PSGAPGAPGP PGAPGPVGPA GKNGDRGETG PAGPAGSAGP AGPRGPAGAP GLRGDKGESG
+     EAGERGHRGF TGMQGPPGPS GSSGEQGPAG AAGPAGPRGP AGSAGSPGKD GMSGLPGPTG
+     PPGPRGRSGE MGPAGPPGPP GPPGAPGAPG GGFDLGFLSQ PQEKAPDPYR DRDLEVDSTL
+     KSLSQQLEQL RSPDGTRFTY SVLEDGCTSH TGTWGKVGAP DQEFGLEVGP VCFL
+//
+ID   CO1A2_EPIMA             Unreviewed;      1127 AA.
+AC   C0HM85;
+DT   31-MAY-2023, integrated into UniProtKB/TrEMBL.
+DT   31-MAY-2023, sequence version 1.
+DT   31-MAY-2023, entry version 1.
+DE   RecName: Full=Collagen alpha-2(I) chain {ECO:0000305};
+DE            Short=col1a2 {ECO:0000305};
+DE   AltName: Full=Alpha-2 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus marginatus (Dusky grouper).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179535 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+DR   PROSITE; PS51461; NC1_FIB; 1.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1127
+FT                   /note="Collagen alpha-2(I) chain"
+FT   DOMAIN          1093..1127
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        180..181
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        350..351
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        413..414
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        768..769
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1027..1028
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1055..1056
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1068..1069
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1081..1082
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1093..1094
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1127 AA;  101980 MW;  FD1A99CF45FBCE04 CRC64;
+     DGKPGLPGPA GPPGPPGLGG NFAAQYDGVK APDPGPGPMG MMGARGPPGP PGPPGAQGHT
+     GHPGEPGEPG QTGPVGPRGP PGPPGKSGED GNNGRPGKPG DRGAPGPQGA RGFPGTPGLP
+     GMKGHRGYTG LDGRKGEPGG AGAKGEPGAH GAAGSPGLAG SRGMPGERGR AGPAGPAGAR
+     GPAGPLGAAG PPGFPGGPGP KGELGPAGAT GPSGAQGSRG EPGPNGAVGP VGPPGNPGNN
+     GLNGAKGAAG TPGVAGAPGF PGPRGGPGPQ GPQGAAGQRG LAGDPGTQGV KGDGGPKGEP
+     GNSGPQGPPG PQGEEGKRGP TGELGATGPA GNRGARGAPG SRGMPGSEGR GASGAAGPRG
+     PPGDAGRAGE SGPAGLRGLP GSPGSSGPPG KEGAAGPAGQ DGRGGPPGPT GPRGPSGEAG
+     KPGDKGATGP TGLRGAPGPD GNNGATGATG PAGGPGEKGE QGAAGAPGFQ GLPGPAGGAG
+     EAGKPGDRGL PGDQGVSGPA GAKGERGNPG AAGASGPQGP LGPRGPAGAP GTDGGKGEPG
+     AAGAAGGPGH QGPGGMPGER GAAGGPGGKG EKGEAGHRGP DGNAGRDGSR GMPGPAGPPG
+     PTGANGDKGE SGSFGPAGPA GARGASGERG EVGPAGAPGF AGPPGADGQT GARGERGPSG
+     GKGESGPSGP AGPAGQSGPP GASGPAGPTG ARGDNGPPGL TGFPGAAGRV GAAGPAGLVG
+     PPGSAGPAGK DGPRGLRGDP GPSGPSGDQG MVGPPGPSGE KGPSGEPGTP GTSGPLGLQG
+     FVGLPGARGD RGSPGGAGAV GEAGRVGPAG PAGARGAPGN LGLPGMTGPQ GEAGREGNPG
+     NDGPPGRPGA PGFKGDRGEP GSSGAMGLAG APGPAGPSGG AGRPGNRGES GPGGAAGAVG
+     PAGARGAAGP SGPRGEKGVA GEKGERGMKG LRGHAGLQGM PGPSGPSGDT GSAGPNGPAG
+     PRGPAGPHGP PGKDGRAGGH GTLGSPGARG PPGYVGPAGP PGXPGLPGPA GPAGGGYDVS
+     GYDEYRAAKD YEVDATLKSL NTQLENLLTP EGSRKETCLH AHPGSLARAV VVQGSNDVEL
+     RFTFSVLEDG CTRTNKPSRL PLLDLAPLDL GGADQEFGLD LGPVCFK
+//
+ID   CO1AB_EPIMA             Unreviewed;      1010 AA.
+AC   C0HM86;
+DT   15-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   15-JUN-2023, sequence version 1.
+DT   15-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1b {ECO:0000305};
+DE            Short=col1a1b {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus marginatus (Dusky grouper).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179535 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1010
+FT                   /note="Collagen, type I, alpha 1b"
+FT   DOMAIN          982..1010
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        82..83
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        325..326
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        436..437
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        479..480
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        677..678
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        701..702
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        828..829
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        958..959
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        969..970
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        982..983
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1010 AA;  90418 MW;  6D4374B0C2D92184 CRC64;
+     SSGPPQPGPM GPMGPRGPPG PPGSSGPQGF TGPPGEPGEP GASGAMGSRG PSGPPGKNGD
+     DGEPGKPGRP GERGAAGPQG ARGFSGLDGA KGDAGPAGPK GESGAPGENG VPGVMGARGL
+     PGERGRPGPP GPSGARGNDG NTGPGGPPGP TGPAGPPGFP GGAGVKGETG PAGGRGNEGP
+     QGARGEPGNP GPAGPAGPAG SPGTDGGPGA KGSPGAAGLA GAPGFPGARG PAGAQGAVGA
+     PGPKGNNGDP GASGPKGEPG AKGEPGPAGV QGLSGPSGEE GKRGARGEPG GAGPRGPPGE
+     RGAPGARGFP GADGGAGGKG APGERGATGE SGSPGAPGAP GSKGVTGSPG SPGPDGKTGP
+     AGVAGQDGRP GPPGSAGARG QPGVMGFPGP KGPAGESGKP GERGPAGATG PVGAPGKXGD
+     VGAPGPSGVA GPAGEKTGKP GEQGAPGEAG PPGPSGPRGD RGFPGERGAP GLGGPTGARG
+     EPGAAGAPGG LGAPGMQGMP GERGASGLPG AKGERGDAGG KGGDGAPGKD GARGXTGALG
+     VPGPHGAQGE KGEGGAVGVA GPTGPRGAPG ERGETGPPGP AGFAGPPGAD GQPGAKGETG
+     DSGPKGDAGA PGPGGPVGAA GPQGPAGPTG PKGARGGAGP PGATGFPGPA GRVGPSGPAG
+     AAGPPGPVGP VGKDGARGET GAAGRPGEAG AAGAPGPSGE KGLVGLPGQR GERGFSGLPG
+     PSGEPGKQGP SGPVGERGPP GPSGPPGLSG APGEAGREGS QGHDGAPGRD GSAGPKGDRG
+     ESGMAGPPGP PGAPGAPGAV GPSGKSGDRG ETGPAGPAGP SGPAGVRGGP AGAKGDRGEA
+     GEAGDRGHKG HRGFTGMQGL PGPAGAHGER GPAGASGPAG PRGPAGSNGA AGKDGMNGLP
+     GPLGPPGPRG RNGEMGPAGP PGPPGPAGPP GPPGSGFDFV SQPLQEEAPD PFRGGHYRSP
+     DGTQKSPARA LLLGGSNDVE LRLPLLDLAP MDVGAPDQEF GVEVGPVCFL
+//
+ID   CO1AA_EPICS             Unreviewed;      1018 AA.
+AC   C0HM87;
+DT   01-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   01-JUN-2023, sequence version 1.
+DT   01-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1a {ECO:0000305};
+DE            Short=col1a1a {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus costae (Goldblotch grouper) (Serranus costae).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=309632 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+DR   PROSITE; PS51461; NC1_FIB; 1.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Disulfide bond; Extracellular matrix;
+KW   Secreted.
+FT   CHAIN           1..1018
+FT                   /note="Collagen, type I, alpha 1a"
+FT   DOMAIN          932..1018
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   DISULFID        993
+FT                   /note="Interchain"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        91..92
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        127..128
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        286..287
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        446..447
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        465..466
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        732..733
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        877..878
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        935..936
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        954..955
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        981..982
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        999..1000
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1018
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1018 AA;  91476 MW;  82D01C7D19222CAE CRC64;
+     QMSAGYDDKS PAMPVPGPMG PMGPRGPPGS PGASGPQGFT GPPGEPGEAG PSGAMGPRGP
+     AGPPGKNGED GESGKPGRGG ERGPPGPQGA RGFSGLDGAK GDSGPAGPKG ESGAPGENGT
+     PGAMGPRGND GAAGAAGPPG PTGPAGPPGF PGGPGAKGDA GAQGGRGPEG PAGARGEPGN
+     PGPAGAAGPS GNPGTDGAAG PKGTPGAAGV AGAPGFPGPR GPSGPQGAAG APGPKGNTGE
+     VGAPGAKGEA GAKGEAGAPG VQGPPGPSGE EGKRGARGEP GAAGARGGPG GRGFPGSDGP
+     AGPKGATGER GAPGAVGPKG ATGEPGRTGE PGLPGAKGMT GSPGSPGPDG KTGAAGPSGQ
+     DGRPGPPGPV GARGQPGVMG FPGPKGAAGE GGKPGERGVM GPTGAAGAPG KDGDVGAPGP
+     SGPAGPAGER XXXGPAGAPG FQGLPGPGEQ GLPGEAGATG PAGARGAPGA LGPAGARGSP
+     GSSGNDGAKG DAGAPGAPGA QGPPGLQGMP GERGAAGLPG LRGDRGDQGA KGADGAPGKD
+     GPRGLTGPLG LPGPAGATGD KGEPGPAGPV GPGGARGAPG ERGESGPPGP AGFAGPPGAD
+     GQPGAKGEAG DNGAKGDAGP PGAAGPTGAP GPQGPVGNTG PKGARGAAGP PGATGFPGAA
+     GRVGPPGPSG NPGPPGPAGG TGKEGPKGNR GETGPAGRTG EVGAAGPPGP AGEKGSPGAE
+     GATGSAGLPG PQVGLPGQRG ERXXPGLPGP AGEPGKPGPS GPGGERGPPG PMGPPGLAGA
+     PGEPGREGSP GNEGSAGRDG AAGPKGDRGE SGPSGAPGAP GPPGAPGPVG PAGKNGDRGE
+     TGPAGPAGSA GPAGPRGPAG APGLRGDKGE SGEAGERGFT GMQGPPGPSG SSGEQGPAGA
+     AGPAGPRGPA GSAGSPGKDG MSGLPGPTGP PGPRGGFDLG FLSQPQEKAP DPFRDRDLEV
+     DSTLKSLSQQ LEQLRSPDGT RSGEYWLDPD QGCTEDALKF TYSVLEDGCT SHTGTWGK
+//
+ID   CO1A2_EPICS             Unreviewed;      1087 AA.
+AC   C0HM88;
+DT   01-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   01-JUN-2023, sequence version 1.
+DT   01-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen alpha-2(I) chain {ECO:0000305};
+DE            Short=col1a2 {ECO:0000305};
+DE   AltName: Full=Alpha-2 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus costae (Goldblotch grouper) (Serranus costae).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=309632 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+DR   PROSITE; PS51461; NC1_FIB; 1.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Disulfide bond; Extracellular matrix;
+KW   Secreted.
+FT   CHAIN           1..1087
+FT                   /note="Collagen alpha-2(I) chain"
+FT   DOMAIN          929..1087
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   DISULFID        986
+FT                   /note="Interchain"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   DISULFID        995
+FT                   /note="Interchain"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        15..16
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        99..100
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        111..112
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        265..266
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        273..274
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        543..544
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        555..556
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        579..580
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        799..800
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        841..842
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        939..940
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        967..968
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1013..1014
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1042..1043
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1053..1054
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1087 AA;  99401 MW;  20CF5AD77EB20716 CRC64;
+     APDPGPGPMG MMGARGPPGP PGKSGEDGNN GRPGKPGDRG APGPQGARGF PGTPGLPGMK
+     GHRGYTGLDG RKGEPGGAGA KGEPGAHGAA GSPGLAGSRG RAGPAGPAGA RAGPLGAAGP
+     PGFPGGPGPK GELGPAGATG PSGAQGSRGE PGPNGAVGPV GPPGNPGNNG LNGAKGAAGT
+     PGVAGAPGFP GPRGGPGPQG PQGAAGQRGL AGDPGTQGVK GDGGPKGEPG NSGPQGSPGP
+     QGEEGKRGPT GELGATGPAG NRGARGMPGS EGRGASGAAG PRGPPGDAGR AGESGPAGLR
+     GLPGSPGSSG PPGKEGPAGP SGQDGRGGPP GPTGPRGQPG NLGFPGPKGP GGEAGKPGDK
+     GATGPTGLRG PPGPDGNNGA TGATGPAGGP GEKGEQGAAG APGFQGLPGP AGGAGEAGKP
+     GDRGLPGDQG VSGPAGAKGE RGNPGAAGAS GPQGPLGPRG PAGAPGTDGG KGEPGAAGAA
+     GGPGHQGPGG MPGERGAAGA PGGKGEKGEA GHRGPDGNAG RDGSRGMPGP AGPPGPTGAN
+     GDKGSFGPAG PAGARGEVGP AGAPGFAGPP GADGQTGARP AGPAGQSGPP GASGPAGPTG
+     ARGDXGPPGL TGFPGAAGRV GAAGPAGLVG PPGSAGPAGK DGPRGLRGDP GPSGPSGDQG
+     MVGPPGPSGE KGPSGEPGPA GSPGTPGTSG PLGLQGFVGL PGARGDRGSP GGAGAVGEPG
+     RVGPAGPAGA RGAPGNLGLP GMTGPQGEAG REGNPGNDGP PGRPGAPGFK GDRGEPGSSG
+     AMGLAGAPGP AGPSGGAGRG NRGESGPGGA AGAVGPAGAR GAAGPSGPRG EKGVAGEKGE
+     RGLRGHAGLQ GMPGPSGPSG DTGSAGPNGP AGPRGPAGPH GPPGKDGRAG GHGTLGAPGA
+     RGPPGYVGPA GPPGSPGLPG PPGPAGGGYD VSGYDEYRAA KDYEVDATLK SLNTQLENLL
+     TPEGSRKLSH PEWSSGFYWL DPNQGCSNDA LKVFCDFTTR ETCLHAHPGS LARNSNAYMS
+     DETGDLKRAV VVQGSNDVEL RFTFSVLEDG CTRTNKPSRL PLLDLAPLDL GGADQEFGLD
+     LGPVCFK
+//
+ID   CO1AB_EPICS             Unreviewed;       883 AA.
+AC   C0HM89;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1b {ECO:0000305};
+DE            Short=col1a1b {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus costae (Goldblotch grouper) (Serranus costae).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=309632 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Taurozzi A.J., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family. {ECO:0000305}.
+PE   4: Predicted;
+KW   Direct protein sequencing.
+FT   CHAIN           1..883
+FT                   /note="Collagen, type I, alpha 1b"
+FT   NON_CONS        75..76
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        120..121
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        148..149
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        209..210
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        281..282
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        386..387
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        405..406
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        510..511
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        518..519
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        555..556
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        566..567
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        604..605
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        613..614
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        772..773
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        814..815
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        860..861
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        869..870
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         883
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   883 AA;  79028 MW;  D86B125923518EE7 CRC64;
+     QMSYVDHSKS SGPPQPGPMG PMGPRGPPGP PGSSGPQGFT GPPGEPGEPG ASGAMGSRGP
+     SGPPGKNGDD GEPGKGAAGP QGARGFSGLD GAKGDAGPAG PKGESGAPGE NGVPGVMGAR
+     GRPGPPGPSG ARGNDGNTGP XGPPGPTGGE TGPAGGRGNE GPQGARGEPG NPGPAGPAGP
+     AGSPGTDGGP GAKGSPGAAG LAGAPGFPGG PAGAQGAVGA PGPKGNSGDP GASGPKGEPG
+     AKGEPGPAGV QGLPGPSGEE GKRGARGEPG GAGPRGPPGE RGFPGADGGA GGKGAPGERG
+     APGSLGAQGA TGESGSPGAP GAPGSKGVTG SPGSPGPDGK TGPAGVAGQD GRPGPPGSAG
+     ARGQPGVMGF PGPKGPAGES GKPGERDGDV GAPGPSGVAG PAGEKGDRGF PGERGAPGLG
+     GPTGARGAPG PAGNDGAKGE PGAAGAPGGL GAPGMQGMPG ERGASGLPGA KGERGDAGGK
+     GGDGAPGKDG SRGMTGALGV PGPPGAQGEK VAGPTGPRGE TGPPGPAGFA GPPGADGQPG
+     AKGETGDSGP KGDAGPQGPA GPTGPKGGAG PPGATGFPGP AGRVGPPGPA GAAGPPGPVG
+     PVGKGETGXA GRPGPQGLAG QRGLVGLPGQ RGERGFSGLP GPSGEPGKQG ASGPVGERGP
+     PGPSGPPGLS GATGEAGREG SQGHDGAPGR DGSAGPKGDR GESGMAGPPG PPGAPGAPGA
+     VGPSGKSGDR GETGPAGPAG PSGPAGVRGP AGPAGAKGDR GEAGEAGDRG HKGFTGMQGL
+     PGPAGVHGER GPAGASGPAG PRGPAGSNGA PGKDNGEMGP AGPPGPPGPA GPPGPPGSGF
+     DFVSQPLQEK APDPFRGGHY LRSPDGTQKK ALLLGGSNDV ELR
+//
+ID   CO1AA_EPIAE             Unreviewed;      1008 AA.
+AC   C0HM90;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1a {ECO:0000305};
+DE            Short=col1a1a {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus aeneus (White grouper) (Serranus aeneus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179536 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1008
+FT                   /note="Collagen, type I, alpha 1a"
+FT   DOMAIN          978..1008
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        30..31
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        63..64
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        99..100
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        216..217
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        255..256
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        366..367
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        432..433
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        591..592
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        677..678
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        699..700
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        819..820
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        877..878
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        920..921
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        947..948
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        961..962
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        977..978
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1008 AA;  91078 MW;  00D07D906532C5F7 CRC64;
+     SPAMPVPGPM GPMGPRGPPG SPGASGPQGF GPAGPPGKNG EDGESGKPGR GGERGPPGPQ
+     GARGFSGLDG AKGDSGPAGP KGESGAPGEN GTPGAMGPRG AAGAAGARGN DGAAGAAGPP
+     GPTGPAGPPG FPGGPGAKGD AGAQGGRGPE GPAGARGEPG NPGPAGAAGP SGNPGTDGAA
+     GPKGTPGAAG VAGAPGFPGP RGPSGPQGAA GAPGPKGEAG AKGEAGAPGV QGPPGPSGEE
+     GKRGARGEPG AAGARGGPGG RGFPGTDGPA GPKGATGERG APGAVGPKGA TGEPGRTGEP
+     GLPGAKGMTG SPGSPGPDGK TGPAGPSGQD GRPGPPGPVG ARGQPGVMGF PGPKGAAGEG
+     GKPGERGPSG PAGPAGERGE QGPAGAPGFQ GLPGPQGALG ETGKPGEQGL PGEAGATGPA
+     GARGDRGFPG ERGAKGDAGA PGAPGAQGPP GLQGMPGERG AAGLPGLRGD RGDQGAKGAD
+     GAPGKDGPRG LTGPLGLPGP AGATGDKGES GPAGAVGPAG ARGAPGERGE SGPPGPAGFA
+     GPPGADGQPG AKGEAGDNGA KGDAGPPGAA GPTGAPGPQG PVGNTGAKGA RATGFPGAAG
+     RVGPPGPSGN PGPPGPAGGP GKEGPKGNRG ETGPAGRPGE LGAAGPPGPA GEKGSPGSEG
+     ATGSAGLPGP QGLAGQRGLP GQRGERGFPG LPGPSGEAGG PSGPGGERGP PGPMGPPGLA
+     GAPGEPGREG SPGNEGSAGR DGAAGPKGDR GESGPSGAPG APGPPGAPGP VGPAGKNGDR
+     GETGPAGPAG SAGPSGPRGP AGAPGLRGDK GESGEAGERR GFTGMQGPPG PSGSSGEQGP
+     AGAAGPAGPR GPAGSAGSPG KDGMSGLPGP TGPPGPRSGE MGPAGPPGPP GPPGAPGAPG
+     GGFDLGFLSQ PQEKAPDPFR DRDLEVDSTL KSLSQQLEQL RSPDGTRSKP EDVNLQLTFL
+     RNSVAYMDAS AGNLKKATSR LPLLDLAPMD VGAPDQEFGL EVGPVCFL
+//
+ID   CO1A2_EPIAE             Unreviewed;      1073 AA.
+AC   C0HM91;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen alpha-2(I) chain {ECO:0000305};
+DE            Short=col1a2 {ECO:0000305};
+DE   AltName: Full=Alpha-2 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus aeneus (White grouper) (Serranus aeneus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179536 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+DR   PROSITE; PS51461; NC1_FIB; 1.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1073
+FT                   /note="Collagen alpha-2(I) chain"
+FT   DOMAIN          1039..1073
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        32..33
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        116..117
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        290..291
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        363..364
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        715..716
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        768..769
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        807..808
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        849..850
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        947..948
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        979..980
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        990..991
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1001..1002
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1014..1015
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1027..1028
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1039..1040
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1073 AA;  97478 MW;  D53010DB7A396A6F CRC64;
+     APDPGPGPMG MMGARGPPGP PGPPGAQGHT GHGPPGPPGK SGEDGNNGRP GKPGDRGAPG
+     PQGARGFPGT PGLPGMKGHR GYTGLDGRKG EPGGAGAKGE PGAHGAAGSP GLAGSRGRAG
+     PAGPAGARGA DGNAGPAGPA GPLGAAGPPG FPGGPGPKGE LGPAGATGPS GAQGSRGEPG
+     PNGAVGPVGP PGNPGNNGLN GAKGAAGTPG VAGAPGFPGP RGGPGPQGPQ GAAGQRGLAG
+     DPGTQGVKGD GGPKGEPGNS GPQGPPGPQG EEGKRGPTGE LGATGPAGNR SGPLGMPGAR
+     GATGAAGPRG PPGDAGRAGE SGPAGLRGLP GSPGSSGPPG KEGAAGPAGQ DGRGGPPGPT
+     GPRGPSGEAG KPGDKGATGP TGLRGAPGPD GNNGATGATG PAGGPGEKGE QGAAGAPGFQ
+     GLPGPAGGAG EAGKPGDRGL PGDQGVSGPA GAKGERGNPG AAGASGPQGP LGPRGPAGAP
+     GTDGGKGEPG AAGAAGGPGH QGPGGMPGER GAAGAPGGKG EKGEAGHRGP DGNAGRDGSR
+     GMPGPAGPPG PTGANGDKGE SGSFGPAGPA GARGASGERG EVGPAGAPGF AGPPGADGQT
+     GARGERGPSG GKGESGPAGP AGPAGQSGPP GASGPAGPTG ARGDNGPPGL TGFPGAAGRV
+     GAAGPAGLVG PPGSAGPAGK DGPRGLRGDP GPSGPSGDQG MVGPPGPSGE KGPSGPAGXP
+     GXPGTSGPLG LQGFVGLPGA RGDRGSPGGA GGVGEPGRVG PAGPAGARGN LGLPGMTGPQ
+     GEAGREGNPG NDGPPGRPGA PGFKGDRGNR GESGPGGAAG AVGPAGARGA AGPSGPRGEK
+     GVAGEKGERG LRGHAGLQGM PGPSGPSGDT GSAGPNGPAG PRGPAGPHGP PGKDGRAGGH
+     GTLGSPGARG PPGYVGPAGP PGSPGLPGPP GPAGGGYDVS GYDEYRAAKD YEVDATLKSL
+     NTQLENLLTP EGSRKNPARL SHPEWSSGFY PNQGCSNDAL KETCLHAHPG SLARAVVVQG
+     SNDVELRFTF SVLEDGCTRT NKPSRLPLLD LAPLDLGGAD QEFGLDLGPV CFK
+//
+ID   CO1AB_EPIAE             Unreviewed;      1029 AA.
+AC   C0HM92;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1b {ECO:0000305};
+DE            Short=col1a1b {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus aeneus (White grouper) (Serranus aeneus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179536 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1029
+FT                   /note="Collagen, type I, alpha 1b"
+FT   DOMAIN          999..1029
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        90..91
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        127..128
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        228..229
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        470..471
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        726..727
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        738..739
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        883..884
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        992..993
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1001..1002
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1029 AA;  91863 MW;  C2E37825957049AB CRC64;
+     QMSYVDHSKS SGPPQPGPMG PMGPRGPPGP PGSSGPQGFT GPPGEPGEPG ASGAMGSRGP
+     SGPPGKNGDD GEPGKPGRPG ERGAAGPQGA RGFSGLDGAK GDAGPAGPKG ESGAPGENGV
+     PGVMGARGRP GPPGPSGARG NDGNTGPXGP PGXTGPAGPP GFPGGAGAKG ETGPAGGRGN
+     EGPQGARGEP GNPGPAGPAG PAGSPGTDGA PGAKGSPGAA GLAGAPGFGP AGAQGAVGAP
+     GPKGNNGDPG ASGPKGEPGA KGEPGPAGVQ GLPGPSGEEG KRGARGEPGG AGPRGPPGER
+     GAPGARGFPG ADGGAGGKGA PGERGAPGAL GAQGATGESG SPGAPGAPGS KGVTGSPGSP
+     GPDGKTGPAG VAGQDGRPGP PGSAGARGQP GVMGFPGPKG PAGESGKPGE RGPSGATGAV
+     GAPGKDGDVG APGPSGVAGP AGEKGEQGPA GPPGFQGLPG PQGATGETGK GLGGPTGPRG
+     APGPAGNDGA KGEPGAAGAP GGLGAPGMQG MPGERGAAGL PGAKGERGDA GGKGGDGAPG
+     KDGARGMTGS LGVPGPPGAQ GEKGEGGAVG VAGPTGPRGA PGERGETGPP GPAGFAGPPG
+     ADGQPGAKGE TGDSGPKGDA GAPGPGGPVG ASGPQGPAGP TGPKGARGGA GPPGATGFPG
+     PAGRVGPPGP AGAAGPPGPV GPVGKDGARG ARGETGAAGR PGEAGAAGAP GPSGEKGSPG
+     XDGAPGGLPG PQGLAGQRGL PGQRGERGFS GLPGPSGEPG KQGPSGPVGE RGPPGPAGPP
+     GLSGAPGEAG REGSQGHDGA PGRDGSAGPK GDRGESGMAG PPGAPGAPGA PGAVGPSGKS
+     GDRGETGPAG PAGPSGPAGV RGPAGPAGAK GDRGEAGEAG DRGGHRGFTG MQGLPGPAGA
+     HGERGPAGAS GPAGPRGPAG SNGAPGKDGM NGLPGPLGPP GPRGRNGEMG PAGPPGPPGP
+     AGPPGPPGSG FDFVSQPLQE KAPDPFRGGH YRLRSPDGTQ KLPLLDLAPM DVGAPDQEFG
+     VEVGPVCFL
+//
+ID   CO1AA_EPICA             Unreviewed;      1095 AA.
+AC   C0HM93;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1a {ECO:0000305};
+DE            Short=col1a1a {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus caninus (Dogtooth grouper) (Serranus caninus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179534 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1095
+FT                   /note="Collagen, type I, alpha 1a"
+FT   DOMAIN          1062..1095
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        82..83
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        748..749
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        762..763
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        969..970
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1014..1015
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1048..1049
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1067..1068
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1095 AA;  98872 MW;  349FE8663B55AB61 CRC64;
+     SPAMPVPGPM GPMGPRGPPG SPGASGPQGF TGPPGEPGEA GSAGAMGPRG PAGPPGKNGE
+     DGESGKPGRG GERGPPGPQG ARGFSGLDGA KGDSGPAGPK GESGAPGENG TPGAMGPRGL
+     PGERGRTGAA GAAGARGNDG AAGAAGPPGP TGPAGPPGFP GGPGAKGDAG AQGGRGPEGP
+     AGARGEPGNP GPAGAAGPSG NPGTDGAAGP KGTPGAAGVA GAPGFPGPRG PSGPQGAAGA
+     PGPKGNTGEV GAPGAKGEAG AKGEAGAPGV QGPPGPSGEE GKRGARGEPG AAGARGAPGE
+     RGGPGGRGFP GSDGPAGPKG ATGERGAPGA VGPKGATGES GRTGEPGLPG AKGMTGSPGS
+     PGPDGKTGPA GPSGQDGRPG PPGPVGARGQ PGVMGFPGPK GAAGEGGKPG ERGVMGPTGA
+     AGAPGKDGDV GAPGPSGPAG PAGERGEQGP AGAPGFQGLP GPQGALGETG KPGEQGLPGE
+     AGATGPAGAR GDRGFPGERG APGALGPAGA RGSPGSXGND GAKGDAGAPG APGAQGPPGL
+     QGMPGERGAA GLPGLRGDRG DQGAKGADGA PGKDGPRGLT GPLGLPGPAG ATGDKGEPGP
+     AGPVGPGGAR GAPGERGESG PPGPAGFAGP PGADGQPGAK GEAGDNGAKG DAGPPGAAGP
+     TGAPGPQGPV GNTGPKGARG AAGPPGATGF PGAAGRVGPP GPSGNPGPPG PAGGPGKEGP
+     KGNRGETGPA GRTGEVGAAG PPGPAGEKSA GLPGPQGLAG QRGLPGQRGE RGFPGLPGPA
+     XEPGKPGPSG PGGERGPPGP MGPPGLAGAP GEPGREGSPG NEGSAGRDGA AGPKGDRGES
+     GPSGAPGAPG PPGAPGPVGP AGKNGDRGET GPAGPAGSAG PAGPRGPAGA LGLRGDKGES
+     GEAGERGMKG HRGFTGMQGP PGPAGSSGEQ GPAGAAGPAG PRGPAGSAGS PGKDGMSGLP
+     GPTGPPGPRS GEMGPAGPPG PPGPPGAPGA PGGGFDLGFL SQPQEKAPDP YRMYDDANVL
+     RDRDLEVDST LKSLSQQLEQ LRSPDGTRFT YSVLEDGCTS HTGTWGKLPL LDLAPMDVGA
+     PDQEFGLEVG PVCFL
+//
+ID   CO1A2_EPICA             Unreviewed;      1100 AA.
+AC   C0HM94;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen alpha-2(I) chain {ECO:0000305};
+DE            Short=col1a2 {ECO:0000305};
+DE   AltName: Full=Alpha-2 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus caninus (Dogtooth grouper) (Serranus caninus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179534 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1100
+FT                   /note="Collagen alpha-2(I) chain"
+FT   DOMAIN          1071..1100
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        138..139
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        315..316
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        760..761
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        853..854
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        968..969
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        990..991
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1022..1023
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1033..1034
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1054..1055
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1072..1073
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1100 AA;  100302 MW;  A143D4FC92F29CA2 CRC64;
+     QYDGVKAPDP GPGPMGMMGA RGPPGPPGPP GAQGHTGHPG EPGEPGQTGP LGPRGPPGPP
+     GKSGEDGNNG RPGKPGDRGA PGPQGARGFP GTPGLPGMKG HRGYTGLDGR KGEPGGAGAK
+     GEPGAHGAAG SPGLAGSRGR AGPAGPAGAR GADGNAGPAG PAGPLGAAGP PGFPGGPGPK
+     GELGPAGATG PSGAQGSRGE PGPNGAVGPV GPPGNPGNNG LNGAKGAAGT PGVAGAPGFP
+     GPRGGPGPQG PQGAAGQRGL AGDPGTQGVK GDGGPKGEPG NSGPQGPPGP QGEEGKRGPT
+     GELGATGPAG NRGARPGSRG MPGSEGRTGP LGMPGARGAS GAAGPRGPPG DAGRAGESGP
+     AGLRGLPGSP GSSGPPGKEG AAGPAGQDGR GGPPGPTGPR GQPGNLGFPG PKGPSGEAGK
+     PGDKGATGPT GLRGAPGPDG NNGATGATGP AGGPGEKGEQ GASGAPGFQG LPGPAGGAGE
+     AGKPGDRGLP GDQGVSGPAG AKGERGNPGA AGASGPQGPL GPRGPAGAPG TDGGKGEPGA
+     AGAAGGPGHQ GPGGMPGERG AAGPPGGKGE KGEGGHRGPD GNAGRDGSRG MPGPAGPPGP
+     TGANGDKGES GAFGPAGPAG VRGASGERGE VGPAGAPGFA GPPGADGQTG ARGERGPSGG
+     KGESGPSGPA GPAGQSGPPG ASGPAGPTGA RGDNGPPGLT GFPGAAGRVG AAGPAGLVGP
+     PGAAGPAGKD GPRGLRGDPG PSGPSGDQGM VGPPGPSGEK GXPGTPGTSG PLGLQGFVGL
+     PGARGDRGSP GGAGAVGEAG RVGPAGPAGA RGAPGNLGLP GMTGPQGEAG REGNPGNDGP
+     PGRPGAPGFK GDRAGPTGAA GRPGNRGESG PGGAAGAVGP AGARGAAGPS GPRGEKGVAG
+     EKGERGMKGL RGHAGLQGMP GPSGPSGDTG SAGPNGPAGP RGPAGPHGPP GKDGRAGGHG
+     TLGSPGARLP GPPGPAGGGY DVSGYDEYRA AKDYEVDATI KSLNTQLENL LTPEGSRKNP
+     ARLSHPEWSS GFYVFCDFNT RETCLHAHPG SLARAEGNSR FTFSVLEDGC TRLPLLDLAP
+     LDLGGADQEF GLDLGPVCFK
+//
+ID   CO1AB_EPICA             Unreviewed;      1059 AA.
+AC   C0HM95;
+DT   02-JUN-2023, integrated into UniProtKB/TrEMBL.
+DT   02-JUN-2023, sequence version 1.
+DT   02-JUN-2023, entry version 1.
+DE   RecName: Full=Collagen, type I, alpha 1b {ECO:0000305};
+DE            Short=col1a1b {ECO:0000305};
+DE   AltName: Full=Alpha-1 type I collagen {ECO:0000305};
+DE   Flags: Fragments;
+OS   Epinephelus caninus (Dogtooth grouper) (Serranus caninus).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Actinopterygii; Neopterygii; Teleostei; Neoteleostei; Acanthomorphata;
+OC   Eupercaria; Perciformes; Serranoidei; Serranidae; Epinephelinae;
+OC   Epinephelini; Epinephelus.
+OX   NCBI_TaxID=179534 {ECO:0000303|Ref.1};
+RN   [1] {ECO:0000305}
+RP   PROTEIN SEQUENCE, AND IDENTIFICATION BY MASS SPECTROMETRY.
+RC   TISSUE=Bone {ECO:0000303|Ref.1};
+RA   Winter R.M., de Kock W., Mackie M., Ramsoe M., Desidera E., Collins M.,
+RA   Guidetti P., Presslee S., Munoz-Alegre M., Oueslati T., Morales-Muniz A.,
+RA   Michailidis D., van den Hurk Y., Cakirlar C.;
+RT   "Grouping groupers in the Mediterranean: ecological baselines revealed by
+RT   ancient proteins.";
+RL   Submitted (MAY-2023) to UniProtKB.
+CC   -!- SUBCELLULAR LOCATION: Secreted, extracellular space, extracellular
+CC       matrix {ECO:0000255|PROSITE-ProRule:PRU00793}.
+CC   -!- SIMILARITY: Belongs to the fibrillar collagen family.
+CC       {ECO:0000255|PROSITE-ProRule:PRU00793}.
+PE   4: Predicted;
+KW   Collagen; Direct protein sequencing; Extracellular matrix; Secreted.
+FT   CHAIN           1..1059
+FT                   /note="Collagen, type I, alpha 1b"
+FT   DOMAIN          1026..1059
+FT                   /note="Fibrillar collagen NC1"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00793"
+FT   NON_CONS        25..26
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        71..72
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        101..102
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        335..336
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        936..937
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        986..987
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        999..1000
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1012..1013
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_CONS        1031..1032
+FT                   /evidence="ECO:0000303|Ref.1"
+FT   NON_TER         1
+FT                   /evidence="ECO:0000303|Ref.1"
+**
+**   #################    INTERNAL SECTION    ##################
+**DR PROSITE; PS51461; NC1_FIB; FALSE_NEG.
+**EV ECO:0000255; PROSITE-ProRule:PRU00793; KAW; 15-JUN-2023.
+**EV ECO:0000303; Ref.1; KAW; 16-JUN-2023.
+**EV ECO:0000305; -; KAW; 11-OCT-2023.
+**SO SUB; DS_NUMBER; DS91047.
+**ZA KAW, 16-JUN-2023;
+SQ   SEQUENCE   1059 AA;  95393 MW;  6C8E4BC48946E947 CRC64;
+     QMSYVDHSKS SGPPQPGPMG PMGPRPGEPG ASGAMGSRGP SGPPGKNGDD GEPGKPGRPG
+     ERGAAGPQGA RGHRGFSGLD GAKGDAGPAG PKGESGAPGE NGLPGERGRP GPPGPSGARG
+     NDGNTGAAGP PGPTGPAGPP GFPGGAGAKG ETGPAGGRGN EGPQGARGEP GNPGPAGPAG
+     PAGSPGTDGA PGAKGSPGAA GLAGAPGFPG ARGPAGAQGA VGAPGPKGNN GDPGSSGPKG
+     EPGAKGEPGP AGVQGLPGPS GEEGKRGARG EPGGAGPRGP PGERGAPGAR GFPGADGGAG
+     GKGAPGERGA PGALGAQGAT GESGSPGAPG APGSKTGPAG VAGQDGRPGP PGSAGARGQP
+     GVMGFPGPKG PAGESGKPGE RGPAGATGPV GAPGKXGDVG APGPSGVAGP AGEKGEQGPA
+     GPPGFQGLPG PQGTTGETGK PGEQGAPGEG GPPGPAGPRG DRGFPGERGA PGLGGPTGAR
+     GAPGPAGNDG AKGEPGAAGA PGGLGAPGMQ GMPGERGAAG LPGAKGERGD AGGKGGDGAP
+     GKDGARGXTG ALGXPGPPGA QGEKGEGGAV GVAGPTGPRG APGERGETGP PGPAGFAGPP
+     GADGQPGAKG ETGDTGPKGD AGAPGPGGPV GAAGPQGPAG PTGPKGARGG AGPPGATGFP
+     GPAGRVGPPG SAGAAGPPGP VGPVGKDGAR GARGETGPAG RPGEAGAAGA PGPSGEKGSP
+     GADGATGSAG LPGPQGLAGQ RGLVGLPGQR GERGFSGLPG PSGEPGKQGP SGPVGERGPP
+     GPSGPPGLSG APGEAGREGS QGHDGAPGRD GSAGPKGDRG ESGMAGPPGP PGAPGAPGAV
+     GPSGKSGDRG ETGPAGPAGP SGPAGVRGPA GPAGAKGDRG EAGEAGDRGH KGHRGFTGMQ
+     GLPGPAGAHG ERGPAGASGP AGPRGPAGSN GAPGKDGRNG EMGPAGPPGP PGPAGPPGPP
+     GSGFDFVSQP LQEKAPDPFR GGHYRALRSP DGTQKSPARA LLLGGSNDVE LRFTYSVSED
+     GCTTHTGSWG KLPLLDLAPM DVGAPDQEFG VEVGPVCFL
+//
