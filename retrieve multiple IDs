@@ -1,0 +1,22 @@
+import os
+import sys
+import datetime
+from datetime import date
+
+AC_dataLog = []
+today = date.today()
+date_today = today.strftime("%d/%m/%y")
+user = os.getlogin()
+
+
+#finds the flatfile and extracts entry ID
+def new_AC():
+        with open('C:/Users/kwarner/Desktop/multi.txt', 'r') as textfile:
+            flatfile = textfile.readlines()
+            for line in flatfile:
+                if line.startswith("ID"):
+                    nameID = (line[5:17])
+                    AC_dataLog.append(f'\n{date_today} {nameID} {user}')
+
+            for each_assign in AC_dataLog:
+                print(each_assign,end='')
