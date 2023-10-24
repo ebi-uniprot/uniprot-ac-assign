@@ -75,17 +75,17 @@ def new_AC():
 #prevent the original file being destroyed if an error occurs during the write
 #def assign_info():
     os.chdir("/Users/kwarner/Desktop") #location of folder containing AC list and assigndacs
-    with open("first.txt", 'r') as AClist,open ("first_temp.txt",'w') as tempAClist:   #creates temp file
+    with open("ac_list.txt", 'r') as AClist,open ("ac_list_temp.txt",'w') as tempAClist:   #creates temp file
         first_AC = next(AClist)  # manual iterate to copy first line
         for line in AClist:
             tempAClist.write(line)
 #add information to end of assigndacs file
-    with open("second.txt", 'a+') as assigninfo:
+    with open("ac_datafile.txt", 'a+') as assigninfo:
         next_AC=(first_AC[0:6])
         assigninfo.write(f'\n{date_today} {next_AC} {nameID} {user} {curator}')
         print(f'The assigned AC is {first_AC}')
-    os.remove("first.txt")
-    os.rename("first_temp.txt","first.txt")
+    os.remove("ac_list.txt")
+    os.rename("ac_list_temp.txt","ac_list.txt")
     exit_program()
 
 
