@@ -12,9 +12,9 @@ Date,  Accession,  ID,  User,  Curator name and purpose
 
 7/6/2023 C0HM93 CO1AA_EPICA kwarner for Kate's sub work
 
-7/6/2023 C0HM94 CO1A2_EPICA kwarner for Kate's sub work
+8/6/2023 C0HM94 CO1A2_DROME kwarner for Kate's sub work
 
-7/6/2023 C0HM95 CO1AB_EPICA kwarner for Kate's sub work
+9/6/2023 C0HM95 CO1AB_HUMAN kwarner for Kate's sub work
 
 Once the script has been run I would expect:
 1. The flatfile to be exactly the same (no change)
