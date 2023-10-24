@@ -1,3 +1,5 @@
+#latest ac is at the top. After script is run the latest AC should be removed 
+#so it's no longer available and cannot be assigned to another entry
 C0HML5
 C0HML6
 C0HML7
