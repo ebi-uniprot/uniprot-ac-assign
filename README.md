@@ -7,6 +7,7 @@ Script for assigning UniProt ACs to entry or entries in a flatfile
 5. When it's finished reading the flatfile it writes all the data to a data file, and the output in the AC datafile looks like this:
    
 Date,  Accession,  ID,  User,  Curator name and purpose
+
 7/6/2023 C0HM92 CO1AB_EPIAE kwarner for Kate's sub work
 
 7/6/2023 C0HM93 CO1AA_EPICA kwarner for Kate's sub work
