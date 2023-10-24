@@ -1,99 +1,74 @@
-#script for assigning new ACs.
-#Asks assigner for location of flatfile and reads the IDs, then asks for the
-#name of the curator that needs the AC and the purpose, returns new ACs from
-#the AC list and increments current AC, writes info to ASSIGNDACS file.
-##Kate W
+"""
+script for assigning new ACs.
+Asks assigner for location of flatfile and reads the IDs, then asks for the
+name of the curator that needs the AC and the purpose, returns new ACs from
+the AC list and increments current AC, writes info to ASSIGNDACS file.
+Kate W
+"""
 
+import argparse
 import os
-import sys
-import datetime
 from datetime import date
 
 today = date.today()
 date_today = today.strftime("%d/%m/%y")
 user = os.getlogin()
 
-#exits script if there is a problem or exits at end of script
-def exit_program():
-    print("Exiting the program...")
-    sys.exit(0)
+
+# finds the flatfile and extracts entry ID
+def write_new_ac(flat_file, entry_id, curator, working_dir):
+    assert os.path.exists(
+        flat_file
+    ), "Could NOT find the flatfile. Check the flatfile location/path is correct"
+
+    # extracts entry ID from flatfile
+    with open(flat_file, "r") as textfile:
+        flat_file_contents = textfile.read()
+        # position of entry ID in flatfiles
+        flat_file_entry_id = flat_file_contents[5:17]
+    print(f"Entry ID from flat file={flat_file_entry_id}")
+    assert flat_file_entry_id == entry_id, "Flat file entry ID incorrect"
+
+    # retrieves latest AC from AC file and deletes it, incrementing next AC
+    # While writing creates a temp file, then renames once writing has completed to
+    # prevent the original file being destroyed if an error occurs during the write
+    # def assign_info():
+    os.chdir(working_dir)  # location of folder containing AC list and assigndacs
+    with open("ac_list.txt", "r") as f:
+        first_ac, *new_acs = f.read().splitlines()
+    # add information to end of assigndacs file
+    with open("ac_datafile.txt", "a+") as assigninfo:
+        next_ac = first_ac[0:6]
+        assigninfo.write(f"\n{date_today} {next_ac} {entry_id} {user} {curator}")
+        print(f"The assigned AC is {first_ac}")
+    with open("ac_list.txt", "w") as o:
+        for new_ac in new_acs:
+            print(new_ac, f=o)
 
 
-#finds the flatfile and extracts entry ID
-def new_AC():
-    ##asks user for flatfile location produces messages
-    while True:
-            file_path = input('Enter flatfile location/path: ')
-
-            if os.path.exists(file_path):
-                print('Found the flatfile')
-                break
-            else:
-                print('Could NOT find the flatfile')
-                print('Check the flatfile location/path is correct')
-                continue
-    #extracts entry ID from flatfile
-    with open(file_path, "r") as textfile:
-        flatfile=textfile.read()
-        #position of entry ID in flatfiles
-        nameID=(flatfile[5:17])
-    print(f'Entry ID =' ,nameID)
-
-
-
-##asks user if the entry ID is correct or not
-    while True:
-        checkID = input('Is flatfile entry ID correct (yes/no): ')
-
-        if checkID.lower() == 'yes':
-            print('Entry ID is correct')
-            break
-        elif checkID.lower() == 'no':
-            print('Entry ID is not correct')
-            print('Check flatfile and its location then re-run the program')
-            exit_program()
-        else:
-            print('Error: Please type "yes" or "no"')
-            continue
-
-##asks user to put curator name for assigndacs file
-#def curator_name():
-    while True:
-        curator = input('Enter Curator name and purpose e.g. For Bobs curation work:')
-        # e.g. For Bob's curation work'
-
-        if curator == '':
-            print('Error: User input is empty')
-            continue
-        else:
-            print(f'This AC is {curator}')
-            break
-
-
-#retrieves latest AC from AC file and deletes it, incrementing next AC
-#While writing creates a temp file, then renames once writing has completed to
-#prevent the original file being destroyed if an error occurs during the write
-#def assign_info():
-    os.chdir("/Users/kwarner/Desktop") #location of folder containing AC list and assigndacs
-    with open("ac_list.txt", 'r') as AClist,open ("ac_list_temp.txt",'w') as tempAClist:   #creates temp file
-        first_AC = next(AClist)  # manual iterate to copy first line
-        for line in AClist:
-            tempAClist.write(line)
-#add information to end of assigndacs file
-    with open("ac_datafile.txt", 'a+') as assigninfo:
-        next_AC=(first_AC[0:6])
-        assigninfo.write(f'\n{date_today} {next_AC} {nameID} {user} {curator}')
-        print(f'The assigned AC is {first_AC}')
-    os.remove("ac_list.txt")
-    os.rename("ac_list_temp.txt","ac_list.txt")
-    exit_program()
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--flat_file", type=str, help="Flatfile path")
+    parser.add_argument("--entry_id", type=str, help="Entry ID")
+    parser.add_argument(
+        "--curator",
+        type=str,
+        help="Curator name and purpose e.g. For Bobs curation work",
+    )
+    parser.add_argument(
+        "--working_dir",
+        type=str,
+        help="Location of folder containing AC list and assigndacs",
+    )
+    return parser.parse_args()
 
 
 # Define main function
 def main():
-    new_AC()
+    args = get_arguments()
+    write_new_ac(args.flat_file, args.entry_id, args.curator, args.working_dir)
 
 
 # Execute main() function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
