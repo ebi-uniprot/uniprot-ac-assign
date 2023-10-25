@@ -9,25 +9,32 @@ Kate W
 import argparse
 import os
 from datetime import date
+import re
 
 today = date.today()
 date_today = today.strftime("%d/%m/%y")
 user = os.getlogin()
 
 
-# finds the flatfile and extracts entry ID
-def write_new_ac(flat_file, entry_id, curator, working_dir):
+def get_ids_from_flat_file(flat_file):
     assert os.path.exists(
         flat_file
     ), "Could NOT find the flatfile. Check the flatfile location/path is correct"
-
+    p = re.compile(r"ID\s+([A-Za-z0-9_]+)")
     # extracts entry ID from flatfile
-    with open(flat_file, "r") as textfile:
-        flat_file_contents = textfile.read()
-        # position of entry ID in flatfiles
-        flat_file_entry_id = flat_file_contents[5:17]
-    print(f"Entry ID from flat file={flat_file_entry_id}")
-    assert flat_file_entry_id == entry_id, "Flat file entry ID incorrect"
+    ids = []
+    with open(flat_file, "r") as f:
+        for line in f:
+            m = p.match(line)
+            if m:
+                ids.append(m.groups()[0])
+    return ids
+
+
+# finds the flatfile and extracts entry ID
+def write_new_ac(flat_file, entry_id, curator, working_dir):
+    flat_file_entry_ids = get_ids_from_flat_file(flat_file)
+    print(flat_file_entry_ids)
 
     # retrieves latest AC from AC file and deletes it, incrementing next AC
     # While writing creates a temp file, then renames once writing has completed to
@@ -35,21 +42,29 @@ def write_new_ac(flat_file, entry_id, curator, working_dir):
     # def assign_info():
     os.chdir(working_dir)  # location of folder containing AC list and assigndacs
     with open("ac_list.txt", "r") as f:
-        first_ac, *new_acs = f.read().splitlines()
+        new_acs = f.read().splitlines()
+
+    assert len(new_acs) == len(flat_file_entry_ids)
+
+    # inform user when there are less than 10 accessions in ac_list
+
     # add information to end of assigndacs file
-    with open("ac_datafile.txt", "a+") as assigninfo:
-        next_ac = first_ac[0:6]
-        assigninfo.write(f"\n{date_today} {next_ac} {entry_id} {user} {curator}")
+    with open("ac_datafile.txt", "a+") as f:
+        # iterate over both flat_file_entry_ids and new_acs using the zip function
+        f.write(f"\n{date_today} {next_ac} {entry_id} {user} {curator}")
         print(f"The assigned AC is {first_ac}")
-    with open("ac_list.txt", "w") as o:
+    with open("ac_list.txt", "w") as f:
         for new_ac in new_acs:
-            print(new_ac, f=o)
+            print(new_ac, file=f)
 
 
 def get_arguments():
+    """
+    ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" --working_dir /desktop/reassignids
+    ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" """
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--flat_file", type=str, help="Flatfile path")
-    parser.add_argument("--entry_id", type=str, help="Entry ID")
+    parser.add_argument("--flat_file", type=str, help="Flat file path")
     parser.add_argument(
         "--curator",
         type=str,
@@ -59,6 +74,7 @@ def get_arguments():
         "--working_dir",
         type=str,
         help="Location of folder containing AC list and assigndacs",
+        # add default location /
     )
     return parser.parse_args()
 
