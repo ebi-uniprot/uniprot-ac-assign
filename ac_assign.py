@@ -16,6 +16,21 @@ today = date.today()
 date_today = today.strftime("%d/%m/%y")
 user = os.getlogin()
 
+"""
+TODO
+
+[ ] use zip to iterate over new_acs and flat_file_entry_ids at the same time
+[ ] test get_ids_from_flat_file using pytest
+[ ] test write_new_ac
+    [ ] create dummy directory ./test_run for script output to be stored
+    [ ] run script and check /test_run is the same as ./test_files/output
+    [ ] ensure that ./test_files are untouched
+[ ] create another command line argument to specify archive location
+[ ] archive with incrementing
+[ ] keep only the last n archive
+[ ] create another function to revert to latest in archive
+"""
+
 
 def get_ids_from_flat_file(flatfile):
     assert os.path.exists(
@@ -61,7 +76,7 @@ def write_new_ac(flatfile, curator, working_dir):
     # add information to end of assigndacs file
     with open("ac_datafile.txt", "a+") as f:
         # TODO: use zip to iterate over new_acs and flat_file_entry_ids at the same time
-        for 
+        for #...use zip here...
             line = " ".join([date_today, new_ac, flat_file_entry_id, user, curator])
             print(f'Writing "{line}" to ac_datafile.txt')
             print(line, file=f)
@@ -73,7 +88,7 @@ def write_new_ac(flatfile, curator, working_dir):
 def get_arguments():
     """
     ./ac_assign.py --flatfile ./test_files/single_flatfile.txt --curator "For Bob's curation work" --working_dir ./test_files
-    ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" """
+    ./ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" """
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--flatfile", type=str, help="Flat file path")
