@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 script for assigning new ACs.
 Asks assigner for location of flatfile and reads the IDs, then asks for the
@@ -9,62 +10,72 @@ Kate W
 import argparse
 import os
 from datetime import date
-import re
+import shutil
 
 today = date.today()
 date_today = today.strftime("%d/%m/%y")
 user = os.getlogin()
 
 
-def get_ids_from_flat_file(flat_file):
+def get_ids_from_flat_file(flatfile):
     assert os.path.exists(
-        flat_file
+        flatfile
     ), "Could NOT find the flatfile. Check the flatfile location/path is correct"
-    p = re.compile(r"ID\s+([A-Za-z0-9_]+)")
     # extracts entry ID from flatfile
     ids = []
-    with open(flat_file, "r") as f:
+    with open(flatfile, "r") as f:
         for line in f:
-            m = p.match(line)
-            if m:
-                ids.append(m.groups()[0])
+            if line.startswith("ID "):
+                ids.append(line.split()[1])
     return ids
 
 
 # finds the flatfile and extracts entry ID
-def write_new_ac(flat_file, entry_id, curator, working_dir):
-    flat_file_entry_ids = get_ids_from_flat_file(flat_file)
+def write_new_ac(flatfile, curator, working_dir):
+    flat_file_entry_ids = get_ids_from_flat_file(flatfile)
     print(flat_file_entry_ids)
 
     # retrieves latest AC from AC file and deletes it, incrementing next AC
     # While writing creates a temp file, then renames once writing has completed to
     # prevent the original file being destroyed if an error occurs during the write
     # def assign_info():
-    os.chdir(working_dir)  # location of folder containing AC list and assigndacs
+    # location of folder containing AC list and assigndacs
+    assert os.path.exists(working_dir)
+    os.chdir(working_dir)
+
+    if not os.path.exists("archive"):
+        os.mkdir("archive")
+
+    for file in ["ac_list.txt", "ac_datafile.txt"]:
+        shutil.copy2(file, "archive")
+
     with open("ac_list.txt", "r") as f:
-        new_acs = f.read().splitlines()
-
-    assert len(new_acs) == len(flat_file_entry_ids)
-
+        ac_list = f.read().splitlines()
+    n_flat_file_entry_ids = len(flat_file_entry_ids)
+    assert len(ac_list) >= n_flat_file_entry_ids
     # inform user when there are less than 10 accessions in ac_list
+
+    new_acs = ac_list[:n_flat_file_entry_ids]
+    rest_acs = ac_list[n_flat_file_entry_ids:]
 
     # add information to end of assigndacs file
     with open("ac_datafile.txt", "a+") as f:
-        # iterate over both flat_file_entry_ids and new_acs using the zip function
-        f.write(f"\n{date_today} {next_ac} {entry_id} {user} {curator}")
-        print(f"The assigned AC is {first_ac}")
+        for new_ac, flat_file_entry_id in zip(new_acs, flat_file_entry_ids):
+            line = " ".join([date_today, new_ac, flat_file_entry_id, user, curator])
+            print(f'Writing "{line}" to ac_datafile.txt')
+            print(line, file=f)
     with open("ac_list.txt", "w") as f:
-        for new_ac in new_acs:
-            print(new_ac, file=f)
+        for ac in rest_acs:
+            print(ac, file=f)
 
 
 def get_arguments():
     """
-    ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" --working_dir /desktop/reassignids
+    ./ac_assign.py --flatfile ./test_files/single_flatfile.txt --curator "For Bob's curation work" --working_dir ./test_files
     ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" """
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--flat_file", type=str, help="Flat file path")
+    parser.add_argument("--flatfile", type=str, help="Flat file path")
     parser.add_argument(
         "--curator",
         type=str,
@@ -82,7 +93,7 @@ def get_arguments():
 # Define main function
 def main():
     args = get_arguments()
-    write_new_ac(args.flat_file, args.entry_id, args.curator, args.working_dir)
+    write_new_ac(args.flatfile, args.curator, args.working_dir)
 
 
 # Execute main() function
