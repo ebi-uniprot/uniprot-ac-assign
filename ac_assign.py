@@ -60,7 +60,8 @@ def write_new_ac(flatfile, curator, working_dir):
 
     # add information to end of assigndacs file
     with open("ac_datafile.txt", "a+") as f:
-        for new_ac, flat_file_entry_id in zip(new_acs, flat_file_entry_ids):
+        # TODO: use zip to iterate over new_acs and flat_file_entry_ids at the same time
+        for 
             line = " ".join([date_today, new_ac, flat_file_entry_id, user, curator])
             print(f'Writing "{line}" to ac_datafile.txt')
             print(line, file=f)
