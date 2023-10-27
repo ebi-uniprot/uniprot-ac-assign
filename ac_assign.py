@@ -4,7 +4,6 @@ script for assigning new ACs.
 Asks assigner for location of flatfile and reads the IDs, then asks for the
 name of the curator that needs the AC and the purpose, returns new ACs from
 the AC list and increments current AC, writes info to ASSIGNDACS file.
-Kate W
 """
 
 import argparse
@@ -64,25 +63,35 @@ def write_new_ac(flatfile, curator, working_dir):
     for file in ["ac_list.txt", "ac_datafile.txt"]:
         shutil.copy2(file, "archive")
 
+
+
     with open("ac_list.txt", "r") as f:
-        ac_list = f.read().splitlines()
+    ac_list = f.read().splitlines()
     n_flat_file_entry_ids = len(flat_file_entry_ids)
     assert len(ac_list) >= n_flat_file_entry_ids
     # inform user when there are less than 10 accessions in ac_list
 
-    new_acs = ac_list[:n_flat_file_entry_ids]
-    rest_acs = ac_list[n_flat_file_entry_ids:]
 
-    # add information to end of assigndacs file
+    new_acs = ac_list[0:n_flat_file_entry_ids] #[:n_flat_file_entry_ids]
+    rest_acs = ac_list[n_flat_file_entry_ids:]
+    return new_acs
+
+def write_new_ac(flatfile):
+     # add information to end of assigndacs file
+    assign_IDs = get_ids_from_flat_file(flatfile)
+    assign_AC = get_new_ac(flatfile)
+# use zip to iterate over new_acs and flat_file_entry_ids at the same time
+    assigned = zip(assign_AC, assign_IDs)
     with open("ac_datafile.txt", "a+") as f:
-        # TODO: use zip to iterate over new_acs and flat_file_entry_ids at the same time
-        for #...use zip here...
-            line = " ".join([date_today, new_ac, flat_file_entry_id, user, curator])
+        for a,i in assigned:
+            line = (f"{date_today} {a} {i} {user} {curator}")
             print(f'Writing "{line}" to ac_datafile.txt')
-            print(line, file=f)
-    with open("ac_list.txt", "w") as f:
-        for ac in rest_acs:
-            print(ac, file=f)
+            f.write(f'\n{line}')
+
+
+        with open("ac_list.txt", "w") as f:
+            for ac in rest_acs:
+                print(ac, file=f)
 
 
 def get_arguments():
@@ -110,6 +119,9 @@ def get_arguments():
 def main():
     args = get_arguments()
     write_new_ac(args.flatfile, args.curator, args.working_dir)
+    ids = get_ids_from_flat_file(flatfile)
+    get_new_ac(flatfile)
+    new_acs = get_new_ac(flatfile)
 
 
 # Execute main() function
