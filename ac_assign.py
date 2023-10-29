@@ -72,7 +72,7 @@ def write_new_ac(flatfile, curator, working_dir):
     # inform user when there are less than 10 accessions in ac_list
 
 
-    new_acs = ac_list[0:n_flat_file_entry_ids] #[:n_flat_file_entry_ids]
+    new_acs = ac_list[:n_flat_file_entry_ids] #[:n_flat_file_entry_ids]
     rest_acs = ac_list[n_flat_file_entry_ids:]
     return new_acs
     return rest_acs
