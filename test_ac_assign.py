@@ -1,5 +1,5 @@
 from pathlib import Path
-from ac_assign import get_ids_from_flat_file
+from ac_assign import get_ids_from_flat_file, read_ac_list_file
 
 
 def test_get_ids_from_flat_file_multiple():
@@ -25,3 +25,15 @@ def test_get_ids_from_flat_file_single():
     assert get_ids_from_flat_file(flatfile) == [
         "LOQS_DROME",
     ]
+
+
+def test_read_ac_list_file():
+    """
+    TODO
+    1. change directory to test_files/input
+    2. call read_ac_list_file() and assert that
+        a. it has the correct length
+        b. starts with C0HML5 (list[0])
+        c. ends with C0HMR2 (list[-1])
+    """
+    read_ac_list_file()

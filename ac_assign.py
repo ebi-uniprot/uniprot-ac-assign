@@ -44,6 +44,19 @@ def get_ids_from_flat_file(flatfile):
     return ids
 
 
+def backup_files(working_dir):
+    if not os.path.exists("archive"):
+        os.mkdir("archive")
+
+    for file in ["ac_list.txt", "ac_datafile.txt"]:
+        shutil.copy2(file, "archive")
+
+
+def read_ac_list_file():
+    with open("ac_list.txt", "r") as f:
+        return f.read().splitlines()
+
+
 # finds the flatfile and extracts entry ID
 def write_new_ac(flatfile, curator, working_dir):
     flat_file_entry_ids = get_ids_from_flat_file(flatfile)
@@ -54,41 +67,28 @@ def write_new_ac(flatfile, curator, working_dir):
     # prevent the original file being destroyed if an error occurs during the write
     # def assign_info():
     # location of folder containing AC list and assigndacs
-    assert os.path.exists(working_dir)
-    os.chdir(working_dir)
 
-    if not os.path.exists("archive"):
-        os.mkdir("archive")
-
-    for file in ["ac_list.txt", "ac_datafile.txt"]:
-        shutil.copy2(file, "archive")
-
-
-
-    with open("ac_list.txt", "r") as f:
-        ac_list = f.read().splitlines()
     n_flat_file_entry_ids = len(flat_file_entry_ids)
     assert len(ac_list) >= n_flat_file_entry_ids
-    # inform user when there are less than 10 accessions in ac_list
+    # TODO: inform user when there are less than 10 accessions in ac_list
 
-
-    new_acs = ac_list[:n_flat_file_entry_ids] #[:n_flat_file_entry_ids]
+    new_acs = ac_list[:n_flat_file_entry_ids]
     rest_acs = ac_list[n_flat_file_entry_ids:]
     return new_acs
     return rest_acs
 
+
 def write_new_ac(flatfile):
-     # add information to end of assigndacs file
+    # add information to end of assigndacs file
     assign_IDs = get_ids_from_flat_file(flatfile)
     assign_AC = get_new_ac(flatfile)
-# use zip to iterate over new_acs and flat_file_entry_ids at the same time
+    # use zip to iterate over new_acs and flat_file_entry_ids at the same time
     with open("ac_datafile.txt", "a+") as f:
         assigned = zip(assign_AC, assign_IDs)
-        for a,i in assigned:
-            line = (f"{date_today} {a} {i} {user} {curator}")
+        for a, i in assigned:
+            line = f"{date_today} {a} {i} {user} {curator}"
             print(f'Writing "{line}" to ac_datafile.txt')
-            f.write(f'\n{line}')
-
+            f.write(f"\n{line}")
 
         with open("ac_list.txt", "w") as f:
             for ac in rest_acs:
@@ -113,15 +113,21 @@ def get_arguments():
         help="Location of folder containing AC list and assigndacs",
         # add default location /
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    return args.flatfile, args.curator, args.working_dir
 
 
 # Define main function
 def main():
-    args = get_arguments()
-    write_new_ac(args.flatfile, args.curator, args.working_dir)
+    flatfile, curator, working_dir = get_arguments()
     ids = get_ids_from_flat_file(flatfile)
-    new_acs = get_new_ac(flatfile)
+    assert os.path.exists(working_dir)
+    os.chdir(working_dir)
+    ac_list = read_ac_list_file()
+    print(ac_list)
+    # backup_files(working_dir)
+    write_new_ac(args.flatfile, args.curator, args.working_dir)
+    # new_acs = get_new_ac(flatfile)
 
 
 # Execute main() function
