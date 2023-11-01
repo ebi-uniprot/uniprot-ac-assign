@@ -1,6 +1,12 @@
 import os
 from pathlib import Path
-from ac_assign import get_ids_from_flat_file, partition_ac_list, read_ac_list_file
+
+from ac_assign import (
+    generate_ac_datafile_lines,
+    get_ids_from_flat_file,
+    partition_ac_list,
+    read_ac_list_file,
+)
 
 working_dir = "test_files/input"
 
@@ -80,3 +86,29 @@ def test_partition_ac_list():
         "C0HMM5",
     ]
     assert len(ac_list) == len(new_acs) + len(rest_acs)
+
+
+def test_generate_ac_datafile_lines():
+    flatfile_entry_ids = [
+        "CO1AA_EPIMA",
+        "CO1A2_EPIMA",
+        "CO1AB_EPIMA",
+        "CO1AA_EPICS",
+    ]
+    new_acs = [
+        "C0HML5",
+        "C0HML6",
+        "C0HML7",
+        "C0HML8",
+    ]
+    user = "User"
+    today = "01/02/03"
+    curator = "For Bob's curation work"
+    assert list(
+        generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator)
+    ) == [
+        "01/02/03 C0HML5 CO1AA_EPIMA User For Bob's curation work",
+        "01/02/03 C0HML6 CO1A2_EPIMA User For Bob's curation work",
+        "01/02/03 C0HML7 CO1AB_EPIMA User For Bob's curation work",
+        "01/02/03 C0HML8 CO1AA_EPICS User For Bob's curation work",
+    ]
