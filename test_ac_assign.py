@@ -9,7 +9,9 @@ from ac_assign import (
     read_ac_list_file,
 )
 
-working_dir = "test_files/input"
+user = "User"
+today = "01/02/03"
+curator = "For Bob's curation work"
 
 
 def test_get_ids_from_flat_file_multiple():
@@ -102,9 +104,6 @@ def test_generate_ac_datafile_lines():
         "C0HML7",
         "C0HML8",
     ]
-    user = "User"
-    today = "01/02/03"
-    curator = "For Bob's curation work"
     assert list(
         generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator)
     ) == [
@@ -115,18 +114,15 @@ def test_generate_ac_datafile_lines():
     ]
 
 
-def test_ac_assign():
-    temp_dir = Path("temp")
-    test_dir = Path("test_files")
-    test_input_dir = Path(test_dir, "input")
-    test_output_dir = Path(test_dir, "output")
-    temp_dir.mkdir()
-    shutil.copytree(test_input_dir, temp_dir)
-    flatfile = Path(temp_dir, "multiple_flatfile.txt")
+def test_ac_assign(tmp_path):
+    test_path = Path("test_files")
+    test_input_path = Path(test_path, "input")
+    test_output_path = Path(test_path, "output")
+    shutil.copytree(test_input_path, tmp_path, dirs_exist_ok=True)
+    flatfile = Path(tmp_path, "multiple_flatfile.txt")
     curator = "For Bob's curation work"
-    ac_assign(flatfile, curator, temp_dir)
+    ac_assign(flatfile, curator, tmp_path, today, user)
     for file in ["ac_datafile.txt", "ac_list.txt"]:
-        assert list(open(Path(temp_dir, file))) == list(
-            open(Path(test_output_dir, file))
+        assert list(open(Path(tmp_path, file))) == list(
+            open(Path(test_output_path, file))
         )
-    temp_dir.rmdir()

@@ -16,12 +16,7 @@ from pathlib import Path
 """
 TODO
 
-[ ] use zip to iterate over new_acs and flat_file_entry_ids at the same time
-[ ] test get_ids_from_flat_file using pytest
-[ ] test write_new_ac
-    [ ] create dummy directory ./test_run for script output to be stored
-    [ ] run script and check /test_run is the same as ./test_files/output
-    [ ] ensure that ./test_files are untouched
+[ ] ensure empty last line is OK
 [ ] create another command line argument to specify archive location
 [ ] archive with incrementing
 [ ] keep only the last n archive
@@ -92,15 +87,12 @@ def get_arguments():
     return args.flatfile, args.curator, args.working_dir
 
 
-def ac_assign(flatfile, curator, working_dir):
+def ac_assign(flatfile, curator, working_dir, today, user):
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     assert os.path.exists(working_dir)
     ac_list_file = Path(working_dir, "ac_list.txt")
     ac_list = read_ac_list_file(ac_list_file)
     new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
-    today = date.today().strftime("%d/%m/%y")
-    user = os.getlogin()
-
     ac_datafile_file = Path(working_dir, "ac_datafile.txt")
     with open(ac_datafile_file, "a+") as f:
         for line in generate_ac_datafile_lines(
@@ -117,7 +109,9 @@ def ac_assign(flatfile, curator, working_dir):
 
 def main():
     flatfile, curator, working_dir = get_arguments()
-    ac_assign(flatfile, curator, working_dir)
+    today = date.today().strftime("%d/%m/%y")
+    user = os.getlogin()
+    ac_assign(flatfile, curator, working_dir, today, user)
 
 
 # Execute main() function
