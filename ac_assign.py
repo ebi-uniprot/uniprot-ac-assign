@@ -10,6 +10,7 @@ import argparse
 import os
 from datetime import date
 import shutil
+from pathlib import Path
 
 
 """
@@ -49,8 +50,8 @@ def backup_files(working_dir):
         shutil.copy2(file, "archive")
 
 
-def read_ac_list_file():
-    with open("ac_list.txt", "r") as f:
+def read_ac_list_file(ac_list_file):
+    with open(ac_list_file, "r") as f:
         return f.read().splitlines()
 
 
@@ -85,31 +86,30 @@ def get_arguments():
         "--working_dir",
         type=str,
         help="Location of folder containing AC list and assigndacs",
-        # add default location /
+        default="/add/this/in",
     )
     args = parser.parse_args()
     return args.flatfile, args.curator, args.working_dir
 
 
-# Define main function
 def main():
     flatfile, curator, working_dir = get_arguments()
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     assert os.path.exists(working_dir)
-    os.chdir(working_dir)
-    ac_list = read_ac_list_file()
+    ac_list_file = Path(working_dir, "ac_list.txt")
+    ac_list = read_ac_list_file(ac_list_file)
     new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
-
     today = date.today().strftime("%d/%m/%y")
     user = os.getlogin()
 
-    with open("ac_datafile.txt", "a+") as f:
+    ac_datafile_file = Path(working_dir, "ac_datafile.txt")
+    with open(ac_datafile_file, "a+") as f:
         for line in generate_ac_datafile_lines(
             new_acs, flatfile_entry_ids, today, user, curator
         ):
             print(line, file=f)
 
-    with open("ac_list.txt", "w") as f:
+    with open(ac_list_file, "w") as f:
         for ac in rest_acs:
             print(ac, file=f)
 
