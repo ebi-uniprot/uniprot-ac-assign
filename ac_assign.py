@@ -57,28 +57,16 @@ def read_ac_list_file():
         return f.read().splitlines()
 
 
-# finds the flatfile and extracts entry ID
-def write_new_ac(flatfile, curator, working_dir):
-    flat_file_entry_ids = get_ids_from_flat_file(flatfile)
-    print(flat_file_entry_ids)
-
-    # retrieves latest AC from AC file and deletes it, incrementing next AC
-    # While writing creates a temp file, then renames once writing has completed to
-    # prevent the original file being destroyed if an error occurs during the write
-    # def assign_info():
-    # location of folder containing AC list and assigndacs
-
-    n_flat_file_entry_ids = len(flat_file_entry_ids)
-    assert len(ac_list) >= n_flat_file_entry_ids
+def partition_ac_list(ac_list, flatfile_entry_ids):
+    n_flatfile_entry_ids = len(flatfile_entry_ids)
+    assert len(ac_list) >= n_flatfile_entry_ids
     # TODO: inform user when there are less than 10 accessions in ac_list
-
-    new_acs = ac_list[:n_flat_file_entry_ids]
-    rest_acs = ac_list[n_flat_file_entry_ids:]
-    return new_acs
-    return rest_acs
+    new_acs = ac_list[:n_flatfile_entry_ids]
+    rest_acs = ac_list[n_flatfile_entry_ids:]
+    return new_acs, rest_acs
 
 
-def write_new_ac(flatfile):
+def write_new_ac(flatfile_entry_ids):
     # add information to end of assigndacs file
     assign_IDs = get_ids_from_flat_file(flatfile)
     assign_AC = get_new_ac(flatfile)
@@ -120,11 +108,11 @@ def get_arguments():
 # Define main function
 def main():
     flatfile, curator, working_dir = get_arguments()
-    ids = get_ids_from_flat_file(flatfile)
+    flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     assert os.path.exists(working_dir)
     os.chdir(working_dir)
     ac_list = read_ac_list_file()
-    print(ac_list)
+    new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
     # backup_files(working_dir)
     write_new_ac(args.flatfile, args.curator, args.working_dir)
     # new_acs = get_new_ac(flatfile)
