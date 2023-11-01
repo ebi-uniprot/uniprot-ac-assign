@@ -3,3 +3,15 @@
 23/10/23 C0HMJ6 LOQS_DROME kwarner For Gemma's curation work
 23/10/23 C0HMJ7 LOQS_DROME kwarner For Mike's work
 24/10/23 C0HML4 LOQS_DROME kwarner For Bob's curation work
+01/02/03 C0HML5 CO1AA_EPIMA User For Bob's curation work
+01/02/03 C0HML6 CO1A2_EPIMA User For Bob's curation work
+01/02/03 C0HML7 CO1AB_EPIMA User For Bob's curation work
+01/02/03 C0HML8 CO1AA_EPICS User For Bob's curation work
+01/02/03 C0HML9 CO1A2_EPICS User For Bob's curation work
+01/02/03 C0HMM0 CO1AB_EPICS User For Bob's curation work
+01/02/03 C0HMM1 CO1AA_EPIAE User For Bob's curation work
+01/02/03 C0HMM2 CO1A2_EPIAE User For Bob's curation work
+01/02/03 C0HMM3 CO1AB_EPIAE User For Bob's curation work
+01/02/03 C0HMM4 CO1AA_EPICA User For Bob's curation work
+01/02/03 C0HMM5 CO1A2_EPICA User For Bob's curation work
+01/02/03 C0HMM6 CO1AB_EPICA User For Bob's curation work
