@@ -1,7 +1,8 @@
-import os
 from pathlib import Path
+import shutil
 
 from ac_assign import (
+    ac_assign,
     generate_ac_datafile_lines,
     get_ids_from_flat_file,
     partition_ac_list,
@@ -112,3 +113,20 @@ def test_generate_ac_datafile_lines():
         "01/02/03 C0HML7 CO1AB_EPIMA User For Bob's curation work",
         "01/02/03 C0HML8 CO1AA_EPICS User For Bob's curation work",
     ]
+
+
+def test_ac_assign():
+    temp_dir = Path("temp")
+    test_dir = Path("test_files")
+    test_input_dir = Path(test_dir, "input")
+    test_output_dir = Path(test_dir, "output")
+    temp_dir.mkdir()
+    shutil.copytree(test_input_dir, temp_dir)
+    flatfile = Path(temp_dir, "multiple_flatfile.txt")
+    curator = "For Bob's curation work"
+    ac_assign(flatfile, curator, temp_dir)
+    for file in ["ac_datafile.txt", "ac_list.txt"]:
+        assert list(open(Path(temp_dir, file))) == list(
+            open(Path(test_output_dir, file))
+        )
+    temp_dir.rmdir()
