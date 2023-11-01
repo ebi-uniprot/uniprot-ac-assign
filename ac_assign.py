@@ -11,9 +11,6 @@ import os
 from datetime import date
 import shutil
 
-today = date.today()
-date_today = today.strftime("%d/%m/%y")
-user = os.getlogin()
 
 """
 TODO
@@ -66,21 +63,10 @@ def partition_ac_list(ac_list, flatfile_entry_ids):
     return new_acs, rest_acs
 
 
-def write_new_ac(flatfile_entry_ids):
-    # add information to end of assigndacs file
-    assign_IDs = get_ids_from_flat_file(flatfile)
-    assign_AC = get_new_ac(flatfile)
-    # use zip to iterate over new_acs and flat_file_entry_ids at the same time
-    with open("ac_datafile.txt", "a+") as f:
-        assigned = zip(assign_AC, assign_IDs)
-        for a, i in assigned:
-            line = f"{date_today} {a} {i} {user} {curator}"
-            print(f'Writing "{line}" to ac_datafile.txt')
-            f.write(f"\n{line}")
-
-        with open("ac_list.txt", "w") as f:
-            for ac in rest_acs:
-                print(ac, file=f)
+def generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator):
+    assert len(new_acs) == len(flatfile_entry_ids)
+    for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
+        yield " ".join([today, new_ac, flatfile_entry_id, user, curator])
 
 
 def get_arguments():
@@ -113,9 +99,21 @@ def main():
     os.chdir(working_dir)
     ac_list = read_ac_list_file()
     new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
+
+    today = date.today().strftime("%d/%m/%y")
+    user = os.getlogin()
+
+    with open("ac_datafile.txt", "a+") as f:
+        for line in generate_ac_datafile_lines(
+            new_acs, flatfile_entry_ids, today, user, curator
+        ):
+            print(line, file=f)
+
+    with open("ac_list.txt", "w") as f:
+        for ac in rest_acs:
+            print(ac, file=f)
+
     # backup_files(working_dir)
-    write_new_ac(args.flatfile, args.curator, args.working_dir)
-    # new_acs = get_new_ac(flatfile)
 
 
 # Execute main() function
