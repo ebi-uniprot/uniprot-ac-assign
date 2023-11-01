@@ -92,8 +92,7 @@ def get_arguments():
     return args.flatfile, args.curator, args.working_dir
 
 
-def main():
-    flatfile, curator, working_dir = get_arguments()
+def ac_assign(flatfile, curator, working_dir):
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     assert os.path.exists(working_dir)
     ac_list_file = Path(working_dir, "ac_list.txt")
@@ -114,6 +113,11 @@ def main():
             print(ac, file=f)
 
     # backup_files(working_dir)
+
+
+def main():
+    flatfile, curator, working_dir = get_arguments()
+    ac_assign(flatfile, curator, working_dir)
 
 
 # Execute main() function
