@@ -44,7 +44,7 @@ def test_read_ac_list_file():
     ac_list = read_ac_list_file(ac_list_file)
     assert len(ac_list) == 48
     assert ac_list[0] == "C0HML5"
-    assert ac_list[-1] == "C0HMR1"
+    assert ac_list[-1] == "C0HMR2"
 
 
 def test_partition_ac_list():
