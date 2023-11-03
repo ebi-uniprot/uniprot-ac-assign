@@ -30,12 +30,14 @@ def get_ids_from_flat_file(flatfile):
 
 
 def get_backup_files(backup_path):
-    return backup_path.glob("ac_list(*).txt") + backup_path.glob("ac_datafile(*).txt")
+    return list(backup_path.glob("ac_list(*).txt")) + list(
+        backup_path.glob("ac_datafile(*).txt")
+    )
 
 
 def get_backup_file_counters(files):
-    p = re.compile(r"ac_(?:list|datafile)\((\d+)\)\.txt")
-    return sorted({int(m.group(1)) for m in (p.match(f) for f in files) if m})
+    p = re.compile(r"ac_(?:list|datafile)\((\d+)\)\.txt$")
+    return sorted({int(m.group(1)) for m in (p.match(f.name) for f in files) if m})
 
 
 def get_counters_to_remove(counters):

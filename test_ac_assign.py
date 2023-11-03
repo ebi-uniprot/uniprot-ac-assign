@@ -112,18 +112,24 @@ def test_generate_ac_datafile_lines():
     ]
 
 
+def assert_files_eq(a, b):
+    assert list(open(a)) == list(open(b))
+
+
 def test_ac_assign(tmp_path):
-    tmp_backup = tmp_path / "backup"
     test_path = Path("test_files")
-    test_input_path = Path(test_path, "input")
-    test_output_path = Path(test_path, "output")
+    test_input_path = test_path / "input"
+    test_output_path = test_path / "output"
+    tmp_backup = tmp_path / "backup"
     shutil.copytree(test_input_path, tmp_path, dirs_exist_ok=True)
-    flatfile = Path(tmp_path, "multiple_flatfile.txt")
+    flatfile = tmp_path / "multiple_flatfile.txt"
     ac_assign(flatfile, curator, tmp_path, tmp_backup, today, user)
     for file in ["ac_datafile.txt", "ac_list.txt"]:
-        assert list(open(Path(tmp_path, file))) == list(
-            open(Path(test_output_path, file))
-        )
+        assert_files_eq(tmp_path / file, test_output_path / file)
+    for file in ["ac_datafile", "ac_list"]:
+        assert_files_eq(tmp_backup / f"{file}(6).txt", test_input_path / f"{file}.txt")
+        old_backup_path = tmp_backup / f"{file}(1).txt"
+        assert not old_backup_path.exists()
 
 
 def test_get_backup_file_counters():
@@ -135,7 +141,7 @@ def test_get_backup_file_counters():
         "ac_list(3).txt",
         "ac_datafile(3).txt",
     ]
-    assert get_backup_file_counters(files) == [1, 2, 3]
+    assert get_backup_file_counters([Path(file) for file in files]) == [1, 2, 3]
 
 
 def test_get_counters_to_remove():
