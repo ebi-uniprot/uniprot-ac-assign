@@ -39,16 +39,12 @@ def test_get_ids_from_flat_file_single():
     ]
 
 
-# def test_read_ac_list_file():
-#     """
-#     TODO
-#     1. change directory to test_files/input
-#     2. call read_ac_list_file() and assert that
-#         a. it has the correct length
-#         b. starts with C0HML5 (list[0])
-#         c. ends with C0HMR2 (list[-1])
-#     """
-#     read_ac_list_file()
+def test_read_ac_list_file():
+    ac_list_file = Path("test_files/input/ac_list.txt")
+    ac_list = read_ac_list_file(ac_list_file)
+    assert len(ac_list) == 48
+    assert ac_list[0] == "C0HML5"
+    assert ac_list[-1] == "C0HMR2"
 
 
 def test_partition_ac_list():
