@@ -21,3 +21,10 @@ Once the script has been run I would expect:
 1. The flatfile to be exactly the same (no change)
 2. The ACs that have been assigned to be removed from the AC list
 3. The AC datafile to be appended with the information on the latest assignment (the output above).
+
+# TODO
+
+- [ ] create another command line argument to specify archive location
+- [ ] archive with incrementing
+- [ ] keep only the last n archive
+- [ ] create another function to revert to latest in archive

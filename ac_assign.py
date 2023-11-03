@@ -8,20 +8,9 @@ the AC list and increments current AC, writes info to ASSIGNDACS file.
 
 import argparse
 import os
-from datetime import date
 import shutil
+from datetime import date
 from pathlib import Path
-
-
-"""
-TODO
-
-[ ] ensure empty last line is OK
-[ ] create another command line argument to specify archive location
-[ ] archive with incrementing
-[ ] keep only the last n archive
-[ ] create another function to revert to latest in archive
-"""
 
 
 def get_ids_from_flat_file(flatfile):
@@ -114,6 +103,5 @@ def main():
     ac_assign(flatfile, curator, working_dir, today, user)
 
 
-# Execute main() function
 if __name__ == "__main__":
     main()
