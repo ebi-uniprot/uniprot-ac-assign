@@ -120,15 +120,18 @@ def test_ac_assign(tmp_path):
     test_path = Path("test_files")
     test_input_path = test_path / "input"
     test_output_path = test_path / "output"
-    tmp_backup = tmp_path / "backup"
+    tmp_backup_path = tmp_path / "backup"
+    tmp_backup_path.mkdir()
     shutil.copytree(test_input_path, tmp_path, dirs_exist_ok=True)
     flatfile = tmp_path / "multiple_flatfile.txt"
-    ac_assign(flatfile, curator, tmp_path, tmp_backup, today, user)
+    ac_assign(flatfile, curator, tmp_path, today, user)
     for file in ["ac_datafile.txt", "ac_list.txt"]:
         assert_files_eq(tmp_path / file, test_output_path / file)
     for file in ["ac_datafile", "ac_list"]:
-        assert_files_eq(tmp_backup / f"{file}(6).txt", test_input_path / f"{file}.txt")
-        old_backup_path = tmp_backup / f"{file}(1).txt"
+        assert_files_eq(
+            tmp_backup_path / f"{file}(6).txt", test_input_path / f"{file}.txt"
+        )
+        old_backup_path = tmp_backup_path / f"{file}(1).txt"
         assert not old_backup_path.exists()
 
 

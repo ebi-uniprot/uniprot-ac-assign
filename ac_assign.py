@@ -14,6 +14,10 @@ from datetime import date
 from pathlib import Path
 
 NUMBER_BACKUPS = 5
+WORKING_PATH = Path(r"F:\ACNumbers")
+BACKUP_DIR = "backup"
+AVAILABLE_ACS_FILE = "available_acs.txt"
+ASSIGNED_ACS_FILE = "assigned_acs.txt"
 
 
 def get_ids_from_flat_file(flatfile):
@@ -51,8 +55,9 @@ def remove_old_backup_files(counters, backup_path):
             file_path.unlink()
 
 
-def backup_files(working_path, backup_path):
-    backup_path.mkdir(parents=True, exist_ok=True)
+def backup_files(working_path):
+    backup_path = working_path / BACKUP_DIR
+    assert backup_path.exists()
     files = get_backup_files(backup_path)
     counters = get_backup_file_counters(files)
     next_counter = counters[-1] + 1 if counters else 1
@@ -87,12 +92,11 @@ def generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator
         yield " ".join([today, new_ac, flatfile_entry_id, user, curator])
 
 
-def ac_assign(flatfile, curator, working_dir, backup_dir, today, user):
+def ac_assign(flatfile, curator, working_dir, today, user):
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     working_path = Path(working_dir)
     assert working_path.exists()
-    backup_path = Path(backup_dir)
-    backup_files(working_path, backup_path)
+    backup_files(working_path)
     ac_list_file = working_path / "ac_list.txt"
     ac_list = read_ac_list_file(ac_list_file)
     new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
@@ -109,10 +113,6 @@ def ac_assign(flatfile, curator, working_dir, backup_dir, today, user):
 
 
 def get_arguments():
-    """
-    ./ac_assign.py --flatfile ./test_files/single_flatfile.txt --curator "For Bob's curation work" --working_dir ./test_files
-    ./ac_assign.py --flatfile /foo/bar --curator "For Bob's curation work" """
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--flatfile", type=str, help="Flat file path")
     parser.add_argument(
@@ -120,27 +120,15 @@ def get_arguments():
         type=str,
         help="Curator name and purpose e.g. For Bobs curation work",
     )
-    parser.add_argument(
-        "--working_dir",
-        type=str,
-        help="Location of folder containing AC list and assigndacs",
-        default="/add/this/in",
-    )
-    parser.add_argument(
-        "--backup_dir",
-        type=str,
-        help="Location of backup folder for previous AC lists and assigndacs",
-        default="/add/this/in",
-    )
     args = parser.parse_args()
-    return args.flatfile, args.curator, args.working_dir, args.backup_dir
+    return args.flatfile, args.curator
 
 
 def main():
-    flatfile, curator, working_dir, backup_dir = get_arguments()
+    flatfile, curator = get_arguments()
     today = date.today().strftime("%d/%m/%y")
     user = os.getlogin()
-    ac_assign(flatfile, curator, working_dir, backup_dir, today, user)
+    ac_assign(flatfile, curator, WORKING_PATH, today, user)
 
 
 if __name__ == "__main__":
