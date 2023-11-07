@@ -24,7 +24,18 @@ Once the script has been run I would expect:
 
 # TODO
 
-- [ ] create another command line argument to specify archive location
-- [ ] archive with incrementing
-- [ ] keep only the last n archive
+- [ ] update README for new users
+- [x] finalize directory structure
+
+```
+F:\ACNumbers
+  available_acs.txt          # Accession to be assigned
+  assigned_acs.txt           # Accessions already assigned with info
+  ac_backup/
+    available_acs(1).txt
+    assigned_acs(1).txt
+```
+
 - [ ] create another function to revert to latest in archive
+- [ ] create installation/update script
+- [ ] move repo to ebi
