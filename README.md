@@ -38,4 +38,5 @@ F:\ACNumbers
 
 - [ ] create another function to revert to latest in archive
 - [ ] create installation/update script
+- [ ] create nicer user feedback on assertion failures
 - [ ] move repo to ebi
