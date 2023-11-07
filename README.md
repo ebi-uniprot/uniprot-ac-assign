@@ -40,4 +40,6 @@ F:\ACNumbers
 - [ ] create installation/update script
 - [ ] create nicer user feedback on assertion failures
 - [ ] inform user when there are less than 10 accessions in ac_list
+- [ ] add docstrings
+- [ ] add explicit file encodings
 - [ ] move repo to ebi
