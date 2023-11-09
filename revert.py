@@ -42,7 +42,7 @@ def list_backups_and_ask_for_version():
     print(f"Listing versions in {backup_path}")
     assert backup_path.exists()
     files = get_backup_files(backup_path)
-    counters = get_backup_file_counters(files)
+    counters = sorted(get_backup_file_counters(files), reverse=True)
     for counter in counters:
         print(f"Version {counter}")
         for filename in [AVAILABLE_ACS_FILE, ASSIGNED_ACS_FILE]:

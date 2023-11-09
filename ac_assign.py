@@ -58,8 +58,8 @@ def get_backup_file_counters(files):
             raise Exception(
                 f"Unknown file in backups detected: {file}\n\nPlease remove before proceeding"
             )
-    available_counters = sorted(available_counters, reverse=True)
-    assigned_counters = sorted(assigned_counters, reverse=True)
+    available_counters = sorted(available_counters)
+    assigned_counters = sorted(assigned_counters)
     assert available_counters == assigned_counters
     return available_counters
 
