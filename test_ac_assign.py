@@ -3,12 +3,12 @@ from pathlib import Path
 
 from ac_assign import (
     ac_assign,
-    generate_ac_datafile_lines,
+    generate_assigned_acs_lines,
     get_backup_file_counters,
     get_counters_to_remove,
     get_ids_from_flat_file,
-    partition_ac_list,
-    read_ac_list_file,
+    partition_available_acs,
+    read_available_acs_file,
 )
 
 user = "User"
@@ -41,15 +41,15 @@ def test_get_ids_from_flat_file_single():
     ]
 
 
-def test_read_ac_list_file():
-    ac_list_file = Path("test_files/input/ac_list.txt")
-    ac_list = read_ac_list_file(ac_list_file)
-    assert len(ac_list) == 48
-    assert ac_list[0] == "C0HML5"
-    assert ac_list[-1] == "C0HMR2"
+def test_read_available_acs_file():
+    available_acs_path = Path("test_files/input/available_acs.txt")
+    available_acs = read_available_acs_file(available_acs_path)
+    assert len(available_acs) == 48
+    assert available_acs[0] == "C0HML5"
+    assert available_acs[-1] == "C0HMR2"
 
 
-def test_partition_ac_list():
+def test_partition_available_acs():
     flatfile_entry_ids = [
         "CO1AA_EPIMA",
         "CO1A2_EPIMA",
@@ -69,7 +69,7 @@ def test_partition_ac_list():
         "C0HMM4",
         "C0HMM5",
     ]
-    new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
+    new_acs, rest_acs = partition_available_acs(ac_list, flatfile_entry_ids)
     assert new_acs == [
         "C0HML5",
         "C0HML6",
@@ -89,7 +89,7 @@ def test_partition_ac_list():
     assert len(ac_list) == len(new_acs) + len(rest_acs)
 
 
-def test_generate_ac_datafile_lines():
+def test_generate_assigned_acs_lines():
     flatfile_entry_ids = [
         "CO1AA_EPIMA",
         "CO1A2_EPIMA",
@@ -103,7 +103,7 @@ def test_generate_ac_datafile_lines():
         "C0HML8",
     ]
     assert list(
-        generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator)
+        generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, curator)
     ) == [
         "01/02/03 C0HML5 CO1AA_EPIMA User For Bob's curation work",
         "01/02/03 C0HML6 CO1A2_EPIMA User For Bob's curation work",
@@ -125,9 +125,9 @@ def test_ac_assign(tmp_path):
     shutil.copytree(test_input_path, tmp_path, dirs_exist_ok=True)
     flatfile = tmp_path / "multiple_flatfile.txt"
     ac_assign(flatfile, curator, tmp_path, today, user)
-    for file in ["ac_datafile.txt", "ac_list.txt"]:
+    for file in ["assigned_acs.txt", "available_acs.txt"]:
         assert_files_eq(tmp_path / file, test_output_path / file)
-    for file in ["ac_datafile", "ac_list"]:
+    for file in ["assigned_acs", "available_acs"]:
         assert_files_eq(
             tmp_backup_path / f"{file}(6).txt", test_input_path / f"{file}.txt"
         )
@@ -137,12 +137,12 @@ def test_ac_assign(tmp_path):
 
 def test_get_backup_file_counters():
     files = [
-        "ac_list(1).txt",
-        "ac_datafile(1).txt",
-        "ac_list(2).txt",
-        "ac_datafile(2).txt",
-        "ac_list(3).txt",
-        "ac_datafile(3).txt",
+        "available_acs(1).txt",
+        "assigned_acs(1).txt",
+        "available_acs(2).txt",
+        "assigned_acs(2).txt",
+        "available_acs(3).txt",
+        "assigned_acs(3).txt",
     ]
     assert get_backup_file_counters([Path(file) for file in files]) == [1, 2, 3]
 
