@@ -24,7 +24,6 @@ def get_ids_from_flat_file(flatfile):
     assert os.path.exists(
         flatfile
     ), "Could NOT find the flatfile. Check the flatfile location/path is correct"
-    # extracts entry ID from flatfile
     ids = []
     with open(flatfile, "r") as f:
         for line in f:
@@ -34,13 +33,15 @@ def get_ids_from_flat_file(flatfile):
 
 
 def get_backup_files(backup_path):
-    return list(backup_path.glob("ac_list(*).txt")) + list(
-        backup_path.glob("ac_datafile(*).txt")
-    )
+    return list(
+        backup_path.glob(get_filename_with_counter(AVAILABLE_ACS_FILE, "*"))
+    ) + list(backup_path.glob(get_filename_with_counter(ASSIGNED_ACS_FILE, "*")))
 
 
 def get_backup_file_counters(files):
-    p = re.compile(r"ac_(?:list|datafile)\((\d+)\)\.txt$")
+    p = re.compile(
+        rf"(?:{get_filename_without_txt(AVAILABLE_ACS_FILE)}|{get_filename_without_txt(ASSIGNED_ACS_FILE)})\((\d+)\)\.txt$"
+    )
     return sorted({int(m.group(1)) for m in (p.match(f.name) for f in files) if m})
 
 
@@ -48,10 +49,23 @@ def get_counters_to_remove(counters):
     return counters[:-NUMBER_BACKUPS]
 
 
+def get_filename_without_txt(filename):
+    extension = ".txt"
+    assert filename.endswith(extension)
+    return filename[: -len(extension)]
+
+
+def get_filename_with_counter(filename, counter):
+    return f"{get_filename_without_txt(filename)}({counter}).txt"
+
+
 def remove_old_backup_files(counters, backup_path):
     for counter in get_counters_to_remove(counters):
-        for file_name in [f"ac_datafile({counter}).txt", f"ac_list({counter}).txt"]:
-            file_path = backup_path / file_name
+        for file_name in [
+            ASSIGNED_ACS_FILE,
+            AVAILABLE_ACS_FILE,
+        ]:
+            file_path = backup_path / get_filename_with_counter(file_name, counter)
             file_path.unlink()
 
 
@@ -63,30 +77,30 @@ def backup_files(working_path):
     next_counter = counters[-1] + 1 if counters else 1
     counters.append(next_counter)
     shutil.copy2(
-        working_path / "ac_list.txt", backup_path / f"ac_list({next_counter}).txt"
+        working_path / AVAILABLE_ACS_FILE,
+        backup_path / get_filename_with_counter(AVAILABLE_ACS_FILE, next_counter),
     )
     shutil.copy2(
-        working_path / "ac_datafile.txt",
-        backup_path / f"ac_datafile({next_counter}).txt",
+        working_path / ASSIGNED_ACS_FILE,
+        backup_path / get_filename_with_counter(ASSIGNED_ACS_FILE, next_counter),
     )
     remove_old_backup_files(counters, backup_path)
 
 
-def read_ac_list_file(ac_list_file):
-    with open(ac_list_file, "r") as f:
+def read_available_acs_file(available_acs_file):
+    with open(available_acs_file, "r") as f:
         return f.read().splitlines()
 
 
-def partition_ac_list(ac_list, flatfile_entry_ids):
+def partition_available_acs(available_acs, flatfile_entry_ids):
     n_flatfile_entry_ids = len(flatfile_entry_ids)
-    assert len(ac_list) >= n_flatfile_entry_ids
-    # TODO: inform user when there are less than 10 accessions in ac_list
-    new_acs = ac_list[:n_flatfile_entry_ids]
-    rest_acs = ac_list[n_flatfile_entry_ids:]
+    assert len(available_acs) >= n_flatfile_entry_ids
+    new_acs = available_acs[:n_flatfile_entry_ids]
+    rest_acs = available_acs[n_flatfile_entry_ids:]
     return new_acs, rest_acs
 
 
-def generate_ac_datafile_lines(new_acs, flatfile_entry_ids, today, user, curator):
+def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, curator):
     assert len(new_acs) == len(flatfile_entry_ids)
     for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
         yield " ".join([today, new_ac, flatfile_entry_id, user, curator])
@@ -97,17 +111,17 @@ def ac_assign(flatfile, curator, working_dir, today, user):
     working_path = Path(working_dir)
     assert working_path.exists()
     backup_files(working_path)
-    ac_list_file = working_path / "ac_list.txt"
-    ac_list = read_ac_list_file(ac_list_file)
-    new_acs, rest_acs = partition_ac_list(ac_list, flatfile_entry_ids)
-    ac_datafile_file = working_path / "ac_datafile.txt"
-    with open(ac_datafile_file, "a+") as f:
-        for line in generate_ac_datafile_lines(
+    available_acs_file = working_path / AVAILABLE_ACS_FILE
+    available_acs = read_available_acs_file(available_acs_file)
+    new_acs, rest_acs = partition_available_acs(available_acs, flatfile_entry_ids)
+    assigned_acs_file = working_path / ASSIGNED_ACS_FILE
+    with open(assigned_acs_file, "a+") as f:
+        for line in generate_assigned_acs_lines(
             new_acs, flatfile_entry_ids, today, user, curator
         ):
             print(line, file=f)
 
-    with open(ac_list_file, "w") as f:
+    with open(available_acs_file, "w") as f:
         for ac in rest_acs:
             print(ac, file=f)
 
