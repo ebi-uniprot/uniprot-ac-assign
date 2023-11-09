@@ -39,7 +39,7 @@ F:\ACNumbers
 - [x] create another function to revert to latest in archive
 - [x] create installation/update script
 - [ ] test revert.py
-- [ ] test install.py
+- [x] test install.py
 - [ ] create nicer user feedback on assertion failures
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings

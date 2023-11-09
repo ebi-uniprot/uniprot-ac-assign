@@ -10,6 +10,7 @@ from ac_assign import (
     partition_available_acs,
     read_available_acs_file,
 )
+from utils import assert_files_eq
 
 user = "User"
 today = "01/02/03"
@@ -110,10 +111,6 @@ def test_generate_assigned_acs_lines():
         "01/02/03 C0HML7 CO1AB_EPIMA User For Bob's curation work",
         "01/02/03 C0HML8 CO1AA_EPICS User For Bob's curation work",
     ]
-
-
-def assert_files_eq(a, b):
-    assert list(open(a)) == list(open(b))
 
 
 def test_ac_assign(tmp_path):
