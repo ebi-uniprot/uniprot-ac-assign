@@ -39,14 +39,39 @@ def get_backup_files(backup_path):
 
 
 def get_backup_file_counters(files):
+    available_stem = get_filename_without_txt(AVAILABLE_ACS_FILE)
+    assigned_stem = get_filename_without_txt(ASSIGNED_ACS_FILE)
     p = re.compile(
-        rf"(?:{get_filename_without_txt(AVAILABLE_ACS_FILE)}|{get_filename_without_txt(ASSIGNED_ACS_FILE)})\((\d+)\)\.txt$"
+        rf"(?P<assigned_or_available>{available_stem}|{assigned_stem})\((?P<counter>\d+)\)\.txt$"
     )
-    return sorted({int(m.group(1)) for m in (p.match(f.name) for f in files) if m})
+    available_counters = []
+    assigned_counters = []
+    for file in files:
+        m = p.match(file.name)
+        if m:
+            counter = int(m.group("counter"))
+            if m.group("assigned_or_available") == available_stem:
+                available_counters.append(counter)
+            else:
+                assigned_counters.append(counter)
+        else:
+            raise Exception(
+                f"Unknown file in backups detected: {file}\n\nPlease remove before proceeding"
+            )
+    available_counters = sorted(available_counters, reverse=True)
+    assigned_counters = sorted(assigned_counters, reverse=True)
+    assert available_counters == assigned_counters
+    return available_counters
 
 
 def get_counters_to_remove(counters):
     return counters[:-NUMBER_BACKUPS]
+
+
+def get_counter_from_filename(filename):
+    extension = ".txt"
+    assert filename.endswith(extension)
+    return filename[: -len(extension)]
 
 
 def get_filename_without_txt(filename):
