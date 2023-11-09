@@ -37,7 +37,7 @@ F:\ACNumbers
 ```
 
 - [x] create another function to revert to latest in archive
-- [ ] create installation/update script
+- [x] create installation/update script
 - [ ] create nicer user feedback on assertion failures
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
