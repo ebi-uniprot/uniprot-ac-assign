@@ -1,5 +1,2 @@
 #output is: today's date,  latest ac,  Entry ID,  user,  Name of curator and purpose
 23/10/23 C0HMJ5 LOQS_DROME kwarner For Dan's sub work
-23/10/23 C0HMJ6 LOQS_DROME kwarner For Gemma's curation work
-23/10/23 C0HMJ7 LOQS_DROME kwarner For Mike's work
-24/10/23 C0HML4 LOQS_DROME kwarner For Bob's curation work

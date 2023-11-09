@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import shutil
 from datetime import datetime
-from pathlib import Path
 
 from ac_assign import (
     ASSIGNED_ACS_FILE,
@@ -16,29 +15,24 @@ from ac_assign import (
 
 def get_number_lines(path):
     with open(path) as f:
-        return len(f.readlines())
+        return len([line for line in f.readlines() if line])
 
 
-def revert(version):
-    backup_path = WORKING_PATH / BACKUP_DIR
-    for [src, dest] in [
-        [
-            backup_path / get_filename_with_counter(AVAILABLE_ACS_FILE, version),
-            WORKING_PATH / AVAILABLE_ACS_FILE,
-        ],
-        [
-            backup_path / get_filename_with_counter(ASSIGNED_ACS_FILE, version),
-            WORKING_PATH / ASSIGNED_ACS_FILE,
-        ],
+def revert(version, working_path):
+    backup_path = working_path / BACKUP_DIR
+    for file in [
+        AVAILABLE_ACS_FILE,
+        ASSIGNED_ACS_FILE,
     ]:
+        src = backup_path / get_filename_with_counter(file, version)
+        dest = working_path / file
         print(f"Replacing {dest} with {src}")
         shutil.copy2(src, dest)
     print(f"Finished reverting to version {version}. Backup files left untouched.")
 
 
-def list_backups_and_ask_for_version():
-    backup_path = WORKING_PATH / BACKUP_DIR
-    backup_path = Path("test_files/input/backup")
+def list_backups_and_ask_for_version(working_path):
+    backup_path = working_path / BACKUP_DIR
     print(f"Listing versions in {backup_path}")
     assert backup_path.exists()
     files = get_backup_files(backup_path)
@@ -61,11 +55,12 @@ def list_backups_and_ask_for_version():
             )
     revert_version = int(input("Select version to revert to: "))
     assert revert_version in counters, "Must be in range"
-    revert(revert_version)
+    revert(revert_version, working_path)
 
 
 def main():
-    list_backups_and_ask_for_version()
+    print(WORKING_PATH)
+    list_backups_and_ask_for_version(WORKING_PATH)
 
 
 if __name__ == "__main__":
