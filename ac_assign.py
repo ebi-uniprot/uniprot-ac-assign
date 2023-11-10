@@ -151,14 +151,14 @@ def partition_available_acs(available_acs, flatfile_entry_ids):
     return new_acs, rest_acs
 
 
-def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, curator):
+def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, comment):
     if len(new_acs) != len(flatfile_entry_ids):
         raise AcFlatFileMismatchError
     for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
-        yield " ".join([today, new_ac, flatfile_entry_id, user, curator])
+        yield " ".join([today, new_ac, flatfile_entry_id, user, comment])
 
 
-def ac_assign(flatfile, curator, working_dir, today, user):
+def ac_assign(flatfile, comment, working_dir, today, user):
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     working_path = Path(working_dir)
     if not working_path.exists():
@@ -170,7 +170,7 @@ def ac_assign(flatfile, curator, working_dir, today, user):
     assigned_acs_file = working_path / ASSIGNED_ACS_FILE
     with open(assigned_acs_file, "a+") as f:
         for line in generate_assigned_acs_lines(
-            new_acs, flatfile_entry_ids, today, user, curator
+            new_acs, flatfile_entry_ids, today, user, comment
         ):
             print(line, file=f)
 
@@ -181,22 +181,22 @@ def ac_assign(flatfile, curator, working_dir, today, user):
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--flatfile", type=str, help="Flat file path")
+    parser.add_argument("flatfile", type=str, help="Flat file path")
     parser.add_argument(
-        "--curator",
+        "comment",
         type=str,
         help="Curator name and purpose e.g. For Bobs curation work",
     )
     args = parser.parse_args()
-    return args.flatfile, args.curator
+    return args.flatfile, args.comment
 
 
 def main():
-    flatfile, curator = get_arguments()
+    flatfile, comment = get_arguments()
     today = date.today().strftime("%d/%m/%y")
     user = os.getlogin()
     try:
-        ac_assign(flatfile, curator, WORKING_PATH, today, user)
+        ac_assign(flatfile, comment, WORKING_PATH, today, user)
     except UnknownBackUpFileError as err:
         print(
             f"Unknown file in backups detected: {err.args[0]}\n\nPlease remove before proceeding"
