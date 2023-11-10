@@ -34,7 +34,9 @@ def revert(version, working_path):
 def list_backups_and_ask_for_version(working_path):
     backup_path = working_path / BACKUP_DIR
     print(f"Listing versions in {backup_path}")
-    assert backup_path.exists()
+    if not backup_path.exists():
+        print("Backup path does not exist")
+        return
     files = get_backup_files(backup_path)
     counters = sorted(get_backup_file_counters(files), reverse=True)
     for counter in counters:
@@ -54,8 +56,10 @@ def list_backups_and_ask_for_version(working_path):
                 "lines",
             )
     revert_version = int(input("Select version to revert to: "))
-    assert revert_version in counters, "Must be in range"
-    revert(revert_version, working_path)
+    if revert_version not in counters:
+        print("Selected version not available.")
+    else:
+        revert(revert_version, working_path)
 
 
 def main():

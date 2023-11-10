@@ -40,7 +40,7 @@ F:\ACNumbers
 - [x] create installation/update script
 - [x] test revert.py
 - [x] test install.py
-- [ ] create nicer user feedback on assertion failures
+- [x] create nicer user feedback on assertion failures
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
 - [ ] add explicit file encodings

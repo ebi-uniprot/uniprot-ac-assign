@@ -20,10 +20,30 @@ AVAILABLE_ACS_FILE = "available_acs.txt"
 ASSIGNED_ACS_FILE = "assigned_acs.txt"
 
 
+class UnknownBackUpFileError(Exception):
+    pass
+
+
+class AssignedAvailableFilesMismatchError(Exception):
+    pass
+
+
+class NotTxtExtensionError(Exception):
+    pass
+
+
+class NotEnoughAcsError(Exception):
+    pass
+
+
+class AcFlatFileMismatchError(Exception):
+    pass
+
+
 def get_ids_from_flat_file(flatfile):
-    assert os.path.exists(
-        flatfile
-    ), "Could NOT find the flatfile. Check the flatfile location/path is correct"
+    if not os.path.exists(flatfile):
+        raise FileNotFoundError("flatfile")
+
     ids = []
     with open(flatfile, "r") as f:
         for line in f:
@@ -55,12 +75,14 @@ def get_backup_file_counters(files):
             else:
                 assigned_counters.append(counter)
         else:
-            raise Exception(
-                f"Unknown file in backups detected: {file}\n\nPlease remove before proceeding"
-            )
+            raise UnknownBackUpFileError(file)
     available_counters = sorted(available_counters)
     assigned_counters = sorted(assigned_counters)
-    assert available_counters == assigned_counters
+
+    if available_counters != assigned_counters:
+        raise AssignedAvailableFilesMismatchError(
+            f"{available_counters} ≠ {assigned_counters}"
+        )
     return available_counters
 
 
@@ -70,13 +92,15 @@ def get_counters_to_remove(counters):
 
 def get_counter_from_filename(filename):
     extension = ".txt"
-    assert filename.endswith(extension)
+    if not filename.endswith(extension):
+        raise NotTxtExtensionError(filename)
     return filename[: -len(extension)]
 
 
 def get_filename_without_txt(filename):
     extension = ".txt"
-    assert filename.endswith(extension)
+    if not filename.endswith(extension):
+        raise NotTxtExtensionError(filename)
     return filename[: -len(extension)]
 
 
@@ -96,7 +120,8 @@ def remove_old_backup_files(counters, backup_path):
 
 def backup_files(working_path):
     backup_path = working_path / BACKUP_DIR
-    assert backup_path.exists()
+    if not backup_path.exists():
+        raise FileNotFoundError(backup_path)
     files = get_backup_files(backup_path)
     counters = get_backup_file_counters(files)
     next_counter = counters[-1] + 1 if counters else 1
@@ -119,14 +144,16 @@ def read_available_acs_file(available_acs_file):
 
 def partition_available_acs(available_acs, flatfile_entry_ids):
     n_flatfile_entry_ids = len(flatfile_entry_ids)
-    assert len(available_acs) >= n_flatfile_entry_ids
+    if len(available_acs) < n_flatfile_entry_ids:
+        raise NotEnoughAcsError
     new_acs = available_acs[:n_flatfile_entry_ids]
     rest_acs = available_acs[n_flatfile_entry_ids:]
     return new_acs, rest_acs
 
 
 def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, curator):
-    assert len(new_acs) == len(flatfile_entry_ids)
+    if len(new_acs) != len(flatfile_entry_ids):
+        raise AcFlatFileMismatchError
     for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
         yield " ".join([today, new_ac, flatfile_entry_id, user, curator])
 
@@ -134,7 +161,8 @@ def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, curato
 def ac_assign(flatfile, curator, working_dir, today, user):
     flatfile_entry_ids = get_ids_from_flat_file(flatfile)
     working_path = Path(working_dir)
-    assert working_path.exists()
+    if not working_path.exists():
+        raise FileNotFoundError("working path")
     backup_files(working_path)
     available_acs_file = working_path / AVAILABLE_ACS_FILE
     available_acs = read_available_acs_file(available_acs_file)
@@ -167,7 +195,26 @@ def main():
     flatfile, curator = get_arguments()
     today = date.today().strftime("%d/%m/%y")
     user = os.getlogin()
-    ac_assign(flatfile, curator, WORKING_PATH, today, user)
+    try:
+        ac_assign(flatfile, curator, WORKING_PATH, today, user)
+    except UnknownBackUpFileError as err:
+        print(
+            f"Unknown file in backups detected: {err.args[0]}\n\nPlease remove before proceeding"
+        )
+    except AssignedAvailableFilesMismatchError as err:
+        print(
+            f"Mismatch between assigned and available backup files. Found these versions: {err.args[0]}"
+        )
+    except FileNotFoundError as err:
+        print(f"Could not find {err.args[0]}. Check location/path is correct.")
+    except NotTxtExtensionError as err:
+        print(f"Expected .txt extension for {err.args[0]}")
+    except NotEnoughAcsError:
+        print("There aren't enough available accessions for provided flat file")
+    except AcFlatFileMismatchError:
+        print(
+            "Sometheing went wrong as there aren't an equal number of accessions to assign and the number accessions in the flat file"
+        )
 
 
 if __name__ == "__main__":
