@@ -44,5 +44,5 @@ F:\ACNumbers
 - [ ] test for thrown errors
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
-- [ ] add explicit file encodings
+- [x] add explicit file encodings
 - [ ] move repo to ebi
