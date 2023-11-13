@@ -63,13 +63,7 @@ For example:
 
 # TODO
 
-- [x] create another function to revert to latest in archive
-- [x] create installation/update script
-- [x] test revert.py
-- [x] test install.py
-- [x] create nicer user feedback on assertion failures
 - [ ] test for thrown errors
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
-- [x] add explicit file encodings
 - [ ] move repo to ebi
