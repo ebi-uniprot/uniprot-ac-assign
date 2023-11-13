@@ -9,14 +9,15 @@
 **Python script for assigning available UniProt ACs to entry or entries in a flatfile.**
 
 Accession numbers are assigned manually for the following:
-submissions
-new entries from published sequences
-entries created from NOT_ANNOTATED_CDS
-demerged entries
+
+- submissions
+- new entries from published sequences
+- entries created from `NOT_ANNOTATED_CDS`
+- demerged entries
 
 ### How the script works
 
-1. We have a list of available ACs (available_acs.txt).
+1. We have a list of available ACs (`available_acs.txt`).
 2. When a curator needs an AC they send us their flatfile which can contain more than one entry.
 3. The script retrieves the latest AC (at the top of the available_acs list), assigns it to the first ID/entry in the flatfile, and then removes that AC from available_acs.
 4. Then it moves to the next ID in the flatfile and repeats 3.
