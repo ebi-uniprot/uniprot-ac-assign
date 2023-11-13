@@ -33,7 +33,7 @@ def revert(version, working_path):
 
 def list_backups_and_ask_for_version(working_path):
     backup_path = working_path / BACKUP_DIR
-    print(f"Listing versions in {backup_path}")
+    print(f"Listing versions in {backup_path} from newest to oldest:")
     if not backup_path.exists():
         print("Backup path does not exist")
         return
@@ -47,15 +47,15 @@ def list_backups_and_ask_for_version(working_path):
             stat = path.stat()
             date = datetime.fromtimestamp(stat.st_mtime)
             print(
-                "--",
+                " --",
                 filename_with_counter,
-                "| modified",
+                "\t|\tmodified",
                 date.strftime("%Y-%m-%d %H:%M:%S"),
-                "|",
+                "\t|\t",
                 get_number_lines(path),
                 "lines",
             )
-    revert_version = int(input("Select version to revert to: "))
+    revert_version = int(input("Enter version number to revert to: "))
     if revert_version not in counters:
         print("Selected version not available.")
     else:
