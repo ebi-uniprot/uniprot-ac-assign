@@ -66,4 +66,3 @@ For example:
 - [ ] test for thrown errors
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
-- [ ] move repo to ebi
