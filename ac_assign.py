@@ -181,9 +181,13 @@ def ac_assign(flatfile, comment, working_dir, today, user):
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("flatfile", type=str, help="Flat file path")
     parser.add_argument(
-        "comment",
+        "--flatfile", "-f", required=True, type=str, help="Flat file path"
+    )
+    parser.add_argument(
+        "--comment",
+        "-c",
+        required=True,
         type=str,
         help="Curator name and purpose e.g. For Bobs curation work",
     )
