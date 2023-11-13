@@ -155,7 +155,7 @@ def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, commen
     if len(new_acs) != len(flatfile_entry_ids):
         raise AcFlatFileMismatchError
     for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
-        print(f"New accession: {new_ac} ⟶ Flatfile ID: {flatfile_entry_id}")
+        print(f"{new_ac}\t{flatfile_entry_id}")
         yield " ".join([today, new_ac, flatfile_entry_id, user, comment])
 
 
@@ -170,6 +170,7 @@ def ac_assign(flatfile, comment, working_dir, today, user):
     new_acs, rest_acs = partition_available_acs(available_acs, flatfile_entry_ids)
     assigned_acs_file = working_path / ASSIGNED_ACS_FILE
     with open(assigned_acs_file, "a+", encoding="utf-8") as f:
+        print("Assigned accessions:")
         for line in generate_assigned_acs_lines(
             new_acs, flatfile_entry_ids, today, user, comment
         ):
