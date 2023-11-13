@@ -155,6 +155,7 @@ def generate_assigned_acs_lines(new_acs, flatfile_entry_ids, today, user, commen
     if len(new_acs) != len(flatfile_entry_ids):
         raise AcFlatFileMismatchError
     for new_ac, flatfile_entry_id in zip(new_acs, flatfile_entry_ids):
+        print(f"New accession: {new_ac} ⟶ Flatfile ID: {flatfile_entry_id}")
         yield " ".join([today, new_ac, flatfile_entry_id, user, comment])
 
 
