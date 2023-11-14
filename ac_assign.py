@@ -91,13 +91,6 @@ def get_counters_to_remove(counters):
     return counters[:-NUMBER_BACKUPS]
 
 
-def get_counter_from_filename(filename):
-    extension = ".txt"
-    if not filename.endswith(extension):
-        raise NotTxtExtensionError(filename)
-    return filename[: -len(extension)]
-
-
 def get_filename_without_txt(filename):
     extension = ".txt"
     if not filename.endswith(extension):
