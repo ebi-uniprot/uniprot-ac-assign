@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-script for assigning new ACs.
-Asks assigner for location of flatfile and reads the IDs, then asks for the
-name of the curator that needs the AC and the purpose, returns new ACs from
-the AC list and increments current AC, writes info to ASSIGNDACS file.
+Script for assigning new ACs.
+Asks assigner for location of flatfile, the name of the curator that needs the 
+AC and the purpose. Reads the IDs from the flatfile and for each ID returns a new AC 
+from the available_acs list, then increments AC list to the next unassigned AC. Writes info 
+to assigned_acs file.
 """
 
 import argparse
