@@ -180,8 +180,7 @@ def ac_assign(flatfile, comment, working_dir, today, user):
     with open(available_acs_file, "w", encoding="utf-8") as f:
         for ac in rest_acs:
             print(ac, file=f)
-        Remaining_acs = len(rest_acs)
-        print(f"There are {Remaining_acs} ACs left in the available_acs file")
+        print(f"There are {len(rest_acs)} ACs left in {AVAILABLE_ACS_FILE}")
 
 
 def get_arguments():
