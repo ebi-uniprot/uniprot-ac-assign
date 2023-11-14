@@ -1,11 +1,17 @@
 import shutil
 from pathlib import Path
 
+import pytest
+
 from ac_assign import (
+    AcFlatFileMismatchError,
+    NotEnoughAcsError,
+    NotTxtExtensionError,
     ac_assign,
     generate_assigned_acs_lines,
     get_backup_file_counters,
     get_counters_to_remove,
+    get_filename_without_txt,
     get_ids_from_flat_file,
     partition_available_acs,
     read_available_acs_file,
@@ -88,6 +94,8 @@ def test_partition_available_acs():
         "C0HMM5",
     ]
     assert len(ac_list) == len(new_acs) + len(rest_acs)
+    with pytest.raises(NotEnoughAcsError):
+        partition_available_acs([], flatfile_entry_ids)
 
 
 def test_generate_assigned_acs_lines():
@@ -111,6 +119,8 @@ def test_generate_assigned_acs_lines():
         "01/02/03 C0HML7 CO1AB_EPIMA User For Bob's curation work",
         "01/02/03 C0HML8 CO1AA_EPICS User For Bob's curation work",
     ]
+    with pytest.raises(AcFlatFileMismatchError):
+        list(generate_assigned_acs_lines([], flatfile_entry_ids, today, user, curator))
 
 
 def test_ac_assign(tmp_path):
@@ -148,3 +158,9 @@ def test_get_counters_to_remove():
     assert not get_counters_to_remove([1, 2, 3])
     assert not get_counters_to_remove([1, 2, 3, 4, 5])
     assert get_counters_to_remove([1, 2, 3, 4, 5, 6]) == [1]
+
+
+def test_get_filename_without_txt():
+    assert get_filename_without_txt("foo.txt") == "foo"
+    with pytest.raises(NotTxtExtensionError):
+        get_filename_without_txt("foo.xlsx")

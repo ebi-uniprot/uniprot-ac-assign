@@ -70,6 +70,5 @@ python F:\ACNumbers\ac_assign.py --flatfile C:\Users\kwarner\flatfile.sp --comme
 
 # TODO
 
-- [ ] test for thrown errors
 - [ ] inform user when there are less than 10 accessions in ac_list
 - [ ] add docstrings
