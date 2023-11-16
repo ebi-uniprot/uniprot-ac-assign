@@ -45,6 +45,7 @@ In contrast, the location of the flatfile that requires the new AC/s, can be any
 ACNumbers directory structure:
 ```
 F:\ACNumbers
+ac_assign.py # The python script for assigning ACs.
 available_acs.txt # Available accessions to be assigned (was called uniprot_acc.lost).
 assigned_acs.txt # Info on accessions that have already been assigned (was called ASSIGNEDACS.TXT).
 ac_backup/ # Folder containing a backup of the last 5 versions of the acs files
@@ -63,7 +64,7 @@ old_script/ # Folder containing the old script written in Perl and old ac files
 python F:\ACNumbers\ac_assign.py -f C:\Users\kwarner\flatfile.sp -c "For Kate's sub work"
 ```
 
-3. The script reads the flafile and finds the number of entires i.e. IDs that require new ACs. It then removes the number of ACs it needs from the available_acs file and adds the assignment info to the bottom of the assigned_acs file. It also prints the assigned ACs and their IDs within the Command prompt window, so that you can copy them and send them to the curator that needs them. It also tells you how many ACs are remaining in the available_acs file.
+3. The script reads the flatfile and determines the number of entries (i.e. IDs) that require new ACs. It then removes the number of ACs it needs from the available_acs file and adds the assignment info to the bottom of the assigned_acs file. It also prints the assigned ACs and their IDs within the Command prompt window, so that you can copy them and send them to the curator that needs them. It also tells you how many ACs are remaining in the available_acs file.
 
 ### How to revert the ac files to earlier versions in the backup folder - using the revert.py script
 
